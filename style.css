@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* html {
+  height: 100%;
+} */
+/* body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+} */
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  opacity: 0;
+  /* transition: opacity ease-in 8s; */
+  transition-delay: 5s;
+  display: none;
+}
+
+.trees {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  height: 40vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
+}
+
+#myVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+}
+
+#intro-button {
+  z-index: 3;
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  text-align: center;
+  display: block;
+  position: relative;
+}
+
+.background-intro {
+  opacity: 1;
+  transition: opacity ease-in 2s;
+}
+
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  z-index: 0;
+  background: #000 url("https://image.ibb.co/mjnygo/stars.png") repeat top
+    center;
+}
+
+.twinkling {
+  z-index: 1;
+  background: transparent url("https://image.ibb.co/ir1DE8/twinkling.png")
+    repeat top center;
+  animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+  z-index: 2;
+  background: transparent url("https://image.ibb.co/bT4N7T/clouds.png") repeat
+    top center;
+  animation: move-clouds-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}
+
+.intro {
+  margin-bottom: 20px;
+  text-align: center;
+  float: left;
+}
+
+.intro2 {
+  float: right;
+}
+.memory-game {
+  margin: auto;
+  /* background-color: red; */
+  width: 640px;
+  height: 640px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.memory-card {
+  /* background-color: cyan; */
+  width: calc(20% - 10px);
+  height: calc(20% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.front-face {
+  background-color: #5368d5;
+}
+/* #72c1d4 */
+
+.front-face,
+.back-face {
+  /* background-color: purple; */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+}
+.back-face {
+  display: none;
+  background-color: #eaa763;
+}
+/* @media (min-width: 600px) {
+  .memory-game {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .memory-game {
+    grid-template-columns: repeat(5, 1fr);
+  }
+} */
+@media only screen and (min-device-width: 320px) and (max-device-width: 760px) and (orientation: landscape) {
+  .front-face,
+  .back-face {
+    padding: 5px;
+  }
+}
