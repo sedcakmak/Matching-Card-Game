@@ -38,14 +38,20 @@
 }
 
 .trees {
+  /* margin-left: auto;
+  margin-right: auto; */
+
+  /* background-size: cover; */
+  /* border: white 1px solid; */
+  background: url(./images/trees4.svg) repeat-x center bottom;
+  background-size: contain;
   position: absolute;
-  z-index: 3;
+  display: block;
+  opacity: 0.7;
   bottom: 0;
-  height: 40vh;
-  margin-left: auto;
-  margin-right: auto;
+  z-index: 99;
   width: 100%;
-  background-size: cover;
+  height: 40vh;
 }
 
 .hidden {
@@ -56,8 +62,21 @@
   opacity: 0;
 }
 
-#intro-button {
+#intro-button,
+#intro-button2 {
   z-index: 3;
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  text-align: center;
+  display: block;
+  position: relative;
+  /* animation: wiggle 2s linear infinite; */
+}
+
+#audio-intro {
+  z-index: 9999;
   margin-top: 10em;
   margin-left: auto;
   margin-right: auto;
@@ -79,6 +98,7 @@
 .background-game {
   opacity: 0;
   transition: opacity ease-in 2s;
+  transition-delay: 1s;
   border: 2px red solid;
   position: absolute;
   top: 0;
@@ -87,7 +107,7 @@
   right: 0;
   background: url(./images/BG3.svg) no-repeat center center;
   background-size: cover;
-  animation: zoom-in-zoom-out 5s ease-out;
+  /* animation: zoom-in-zoom-out 5s infinite; */
 
   height: 100vh;
 }
@@ -149,9 +169,37 @@
   0% {
     transform: scale(1, 1);
   }
-
+  50% {
+    transform: scale(1.1, 1.1);
+  }
   100% {
-    transform: scale(1.2, 1.2);
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
   }
 }
 

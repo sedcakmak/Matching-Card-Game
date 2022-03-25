@@ -1,17 +1,28 @@
+// window.onload = function () {
+//   document.getElementById("audio_intro").play();
+// };
 const buttonElement = document.getElementById("intro-button");
+const buttonElement2 = document.getElementById("intro-button2");
 const backgroundElement = document.getElementById("background-intro");
 const wrapperElement = document.getElementById("wrapper-cards");
 const bgElement = document.getElementById("background-game");
 // const audioElement = document.getElementById("howling");
-let audio = new Audio("./images/howling.wav");
+// let audio_howling = new Audio("./images/howling.wav");
+// let audio_intro = new Audio("./images/intro.wav");
 
 buttonElement.addEventListener("click", hideIntro);
+buttonElement2.addEventListener("click", playIntro);
+
+ function playIntro() {
+   console.log("working");
+   document.getElementById("audio_intro").play();
+ }
 
 function hideIntro() {
   backgroundElement.style.opacity = "0";
   wrapperElement.style.opacity = "1";
   bgElement.style.opacity = "1";
-  audio.play();
+  // audio_howling.play();
   setTimeout(function () {
     backgroundElement.style.display = "none";
   }, 2000);

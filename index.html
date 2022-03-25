@@ -9,16 +9,32 @@
   <!-- alttakini degistir -->
   <meta property="og:image" content="images/discworldbackground.jpg" />
   <meta property="og:description" content="Memory Matching Card Game" />
+
+  <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <audio controls id="audio_intro">
+    <source src="./images/intro3.wav" type="audio/wav">
+  </audio>
   <div class="background-intro" id="background-intro">
-    <div class="stars"> </div>
+
+    <!-- <div class="stars"> </div>
     <div class="twinkling"> </div>
-    <div class="clouds"> </div>
+    <div class="clouds"> </div> -->
     <button id="intro-button">Click Me</button>
-    <img class="trees" alt="trees" src="./images/trees1.svg">
+    <button id="intro-button2" onclick="playIntro()">Click Me For Intro</button>
+
+
+    <!-- <div class="shake-slow"></div> -->
+
+
+    <div class="trees"></div>
+
+
+    <!-- <img class="trees" alt="trees" src="./images/trees3.svg"> -->
   </div>
   <!-- <video autoplay muted loop id="myVideo">
     <source src="./images/BGvideo.mp4" type="video/mp4">
