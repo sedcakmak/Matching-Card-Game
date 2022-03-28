@@ -37,9 +37,9 @@
   font-weight: 800;
   transition: background, color 0.1s ease-in-out;
 }
-#mute_sounds {
+#toggle_sounds {
   z-index: 3;
-
+  border-radius: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
@@ -47,6 +47,14 @@
   display: block;
   position: relative;
   cursor: pointer;
+  background-color: green;
+}
+
+.sound-button {
+  border-radius: 100%;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
 }
 
 .moves {
@@ -74,7 +82,7 @@
 }
 
 #intro-button,
-#intro-button2 {
+#start-journey {
   z-index: 3;
   margin-top: 10em;
   margin-left: auto;
@@ -84,7 +92,30 @@
   display: block;
   position: relative;
   cursor: pointer;
+  font-family: "Libre Baskerville", serif;
+
   /* animation: wiggle 2s linear infinite; */
+}
+#start-journey {
+  transition: opacity 2s ease-in;
+}
+#intro-button {
+  opacity: 0;
+  transition: opacity 2.5s ease-in;
+}
+
+p {
+  font-family: "Libre Baskerville", serif;
+  font-size: 28px;
+  font-weight: normal;
+  width: 800px;
+  color: white;
+  opacity: 0.7;
+  z-index: 9999;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background-color: transparent;
 }
 
 #audio-intro {
@@ -96,15 +127,6 @@
   text-align: center;
   display: block;
   position: relative;
-}
-
-#myVideo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: fill;
 }
 
 .background-game {

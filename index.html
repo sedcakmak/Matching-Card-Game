@@ -9,6 +9,12 @@
   <!-- alttakini degistir -->
   <meta property="og:image" content="images/discworldbackground.jpg" />
   <meta property="og:description" content="Memory Matching Card Game" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://kit.fontawesome.com/60762ac1b5.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"
     integrity="sha512-L6Z/YtIPQ7eU3BProP34WGU5yIRk7tNHk7vaC2dB1Vy1atz6wl9mCkTPPZ2Rn1qPr+vY2mZ9odZLdGYuaBk7dQ=="
     crossorigin="anonymous"></script>
@@ -19,14 +25,18 @@
 </head>
 
 <body>
-  <button class="intro-button3" id="mute_sounds" onclick="mutePage()">Sounds off</button>
+  <button id="toggle_sounds" onclick="mutePage()"><i class="fa-solid fa-music"></i></button>
   <div class="background-intro" id="background-intro">
 
     <div class="stars"> </div>
     <div class="twinkling"> </div>
     <div class="clouds"> </div>
-    <button id="intro-button">Click Me</button>
-    <button id="intro-button2" onclick="playIntro()">Click Me For Intro</button>
+
+
+    <button id="start-journey" onclick="playIntro()">Start The Journey</button>
+    <p></p>
+    <button id="intro-button">Take The Path</button>
+
 
 
     <!-- <div class="shake-slow"></div> -->

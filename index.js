@@ -28,8 +28,8 @@ var sfx = {
 //   loop: true,
 // });
 
-const buttonElement = document.getElementById("intro-button");
-const buttonElement2 = document.getElementById("intro-button2");
+const pathButton = document.getElementById("intro-button");
+const startJourney = document.getElementById("start-journey");
 const backgroundElement = document.getElementById("background-intro");
 const wrapperElement = document.getElementById("wrapper-cards");
 const backtoIntroButton = document.getElementById("back_to_intro");
@@ -37,17 +37,50 @@ const bgElement = document.getElementById("background-game");
 // const audioElement = document.getElementById("howling");
 //let audio_howling = new Audio("./images/howling.wav");
 // let audio_intro = new Audio("./images/intro.wav");
-const muteButton = document.getElementById("mute_sounds");
+const muteButton = document.getElementById("toggle_sounds");
 
 backtoIntroButton.addEventListener("click", goBackToIntro);
-buttonElement.addEventListener("click", hideIntro);
-buttonElement2.addEventListener("click", playIntro);
+pathButton.addEventListener("click", hideIntro);
+startJourney.addEventListener("click", showIntro);
 // muteButton.addEventListener("click", mutePage);
+
+function showIntro() {
+  playIntro();
+  fadeIntroButton();
+  setTimeout(showIntroText, 3000);
+  setTimeout(showPathButton, 6500)
+}
+
+function showPathButton() {
+pathButton.style.opacity = 1;
+}
 
 function playIntro() {
   if (!music.intro.playing()) {
     music.intro.play();
   }
+}
+
+function fadeIntroButton() {
+  startJourney.style.opacity = 0;
+}
+
+function showIntroText() {
+
+  var content = 'Under a starry night, you find yourself in a pitch black forest. You see only one path to move forward. ';
+
+
+var ele = '<span>' + content.split('').join('</span><span>') + '</span>';
+
+
+$(ele).hide().appendTo('p').each(function (i) {
+    $(this).delay(50 * i).css({
+        display: 'inline',
+        opacity: 0
+    }).animate({
+        opacity: 1
+    }, 1000);
+});
 }
 
 function hideIntro() {
@@ -77,6 +110,8 @@ function mutePage() {
   console.log("mutePage working");
   return music.intro.playing() ? music.intro.pause() : playIntro();
 }
+
+// Game Mechanics
 
 const cardElement = document.querySelectorAll(".memory-card");
 const testEle = document.getElementById("restart");
