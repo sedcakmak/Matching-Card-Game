@@ -1,7 +1,3 @@
-// window.onload = function () {
-//   document.getElementById("audio_intro").play();
-// };
-
 var music = {
   intro: new Howl({
     src: ["./images/intro4.mp3"],
@@ -34,31 +30,24 @@ const backgroundElement = document.getElementById("background-intro");
 const wrapperElement = document.getElementById("wrapper-cards");
 const backtoIntroButton = document.getElementById("back_to_intro");
 const bgElement = document.getElementById("background-game");
-// const audioElement = document.getElementById("howling");
-//let audio_howling = new Audio("./images/howling.wav");
-// let audio_intro = new Audio("./images/intro.wav");
 const muteButton = document.getElementById("toggle_sounds");
+const musicIcon = document.querySelector(".music_icon");
 
 backtoIntroButton.addEventListener("click", goBackToIntro);
 pathButton.addEventListener("click", hideIntro);
 startJourney.addEventListener("click", showIntro);
-// muteButton.addEventListener("click", mutePage);
+musicIcon.addEventListener("click", toggleIcon);
+muteButton.addEventListener("click", mutePage);
 
 function showIntro() {
   playIntro();
   fadeIntroButton();
   setTimeout(showIntroText, 3000);
-  setTimeout(showPathButton, 6500)
+  setTimeout(showPathButton, 6500);
 }
 
 function showPathButton() {
-pathButton.style.opacity = 1;
-}
-
-function playIntro() {
-  if (!music.intro.playing()) {
-    music.intro.play();
-  }
+  pathButton.style.opacity = 1;
 }
 
 function fadeIntroButton() {
@@ -66,21 +55,28 @@ function fadeIntroButton() {
 }
 
 function showIntroText() {
+  var content =
+    "Under a starry night, you find yourself in a pitch black forest. You see only one path to move forward. ";
 
-  var content = 'Under a starry night, you find yourself in a pitch black forest. You see only one path to move forward. ';
+  var ele = "<span>" + content.split("").join("</span><span>") + "</span>";
 
-
-var ele = '<span>' + content.split('').join('</span><span>') + '</span>';
-
-
-$(ele).hide().appendTo('p').each(function (i) {
-    $(this).delay(50 * i).css({
-        display: 'inline',
-        opacity: 0
-    }).animate({
-        opacity: 1
-    }, 1000);
-});
+  $(ele)
+    .hide()
+    .appendTo("p")
+    .each(function (i) {
+      $(this)
+        .delay(50 * i)
+        .css({
+          display: "inline",
+          opacity: 0,
+        })
+        .animate(
+          {
+            opacity: 1,
+          },
+          1000
+        );
+    });
 }
 
 function hideIntro() {
@@ -106,9 +102,23 @@ function goBackToIntro() {
   location.reload();
 }
 
+function playIntro() {
+  if (!music.intro.playing()) {
+    music.intro.play();
+  }
+}
+
 function mutePage() {
-  console.log("mutePage working");
+  muteButton.classList.toggle("music");
   return music.intro.playing() ? music.intro.pause() : playIntro();
+}
+
+function toggleIcon() {
+  if (musicIcon.innerHTML === "♬") {
+    musicIcon.innerHTML = "🔇";
+  } else {
+    musicIcon.innerHTML = "♬";
+  }
 }
 
 // Game Mechanics

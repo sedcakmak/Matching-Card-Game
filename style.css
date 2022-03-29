@@ -37,24 +37,71 @@
   font-weight: 800;
   transition: background, color 0.1s ease-in-out;
 }
-#toggle_sounds {
+.toggle_sounds {
   z-index: 3;
-  border-radius: 100%;
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
-  padding: 5px;
+  padding: 5px; */
   text-align: center;
   display: block;
   position: relative;
   cursor: pointer;
-  background-color: green;
+  width: 50px;
+  height: 50px;
+
+  background-color: #66ff00;
+  border-radius: 100px;
+
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0px 5px 6px;
+
+  left: 4%;
+  top: 8%;
+  margin-left: -50px;
+  margin-top: -50px;
+  position: absolute;
 }
 
-.sound-button {
-  border-radius: 100%;
-  background-color: transparent;
-  width: 30px;
-  height: 30px;
+.music {
+  background-color: #ff3131;
+}
+
+.music_icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 3px;
+  top: 3px;
+  cursor: pointer;
+  font-family: "Lucida Sans";
+  font-weight: bold;
+  font-size: 23px;
+  color: #888;
+  text-shadow: 0px 1px 0px #fff;
+  text-align: center;
+  padding-top: 6px;
+  user-select: none;
+  border-radius: 100px;
+  background-image: linear-gradient(top, #eee, #bbb 70%, #9f9f9f 100%);
+  background-position: 0 6px;
+  background-color: #eee;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 3px 6px;
+  transition: all 0.1s ease-in;
+}
+
+.music_icon:hover {
+  background-position: 0 0px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 3px 8px;
+}
+
+.music_icon:active {
+  width: 40px;
+  height: 40px;
+  margin: 2px 0 0 2px;
+  border-bottom: 1px solid #fff;
+  font-size: 21px;
+  color: #777;
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0px 5px 10px;
 }
 
 .moves {
@@ -69,7 +116,7 @@
   margin-right: auto; */
 
   /* background-size: cover; */
-  /* border: white 1px solid; */
+  border: white 1px solid;
   background: url(./images/trees4.svg) repeat-x center bottom;
   background-size: contain;
   position: absolute;
@@ -78,7 +125,7 @@
   bottom: 0;
   z-index: 99;
   width: 100%;
-  height: 40vh;
+  height: 30vh;
 }
 
 #intro-button,
@@ -102,6 +149,7 @@
 #intro-button {
   opacity: 0;
   transition: opacity 2.5s ease-in;
+  border: green 1px solid;
 }
 
 p {
@@ -116,6 +164,7 @@ p {
   margin-right: auto;
   position: relative;
   background-color: transparent;
+  /* letter-spacing: 2.5px; */
 }
 
 #audio-intro {

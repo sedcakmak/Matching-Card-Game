@@ -12,7 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
   <script src="https://kit.fontawesome.com/60762ac1b5.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"
@@ -25,7 +26,12 @@
 </head>
 
 <body>
-  <button id="toggle_sounds" onclick="mutePage()"><i class="fa-solid fa-music"></i></button>
+  <button id="toggle_sounds" class="toggle_sounds">
+    <a class="music_icon">♬</a>
+  </button>
+
+  <!-- <button id="toggle_sounds" onclick="mutePage()" class="fa-stack fa-2x"><i class="fa-solid fa-music fa-stack-1x"></i><i class="fa-solid fa-slash fa-stack-1x"></i></button>
+  <i class="fas fa-ban fa-stack-2x" style="color:Tomato"></i> -->
   <div class="background-intro" id="background-intro">
 
     <div class="stars"> </div>
