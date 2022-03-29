@@ -26,11 +26,11 @@
 </head>
 
 <body>
-  <button id="toggle_sounds" class="toggle_sounds">
-    <a class="music_icon">♬</a>
+  <button id="toggle_sounds" class="toggle_sounds" style="display:none;">
+    <a class="music_icon"></a>
   </button>
 
-  <!-- <button id="toggle_sounds" onclick="mutePage()" class="fa-stack fa-2x"><i class="fa-solid fa-music fa-stack-1x"></i><i class="fa-solid fa-slash fa-stack-1x"></i></button>
+  <!-- <button id="toggle_sounds" onclick="toggleSounds()" class="fa-stack fa-2x"><i class="fa-solid fa-music fa-stack-1x"></i><i class="fa-solid fa-slash fa-stack-1x"></i></button>
   <i class="fas fa-ban fa-stack-2x" style="color:Tomato"></i> -->
   <div class="background-intro" id="background-intro">
 
@@ -39,7 +39,7 @@
     <div class="clouds"> </div>
 
 
-    <button id="start-journey" onclick="playIntro()">Start The Journey</button>
+    <button id="start-journey">Start The Journey</button>
     <p></p>
     <button id="intro-button">Take The Path</button>
 
@@ -49,28 +49,17 @@
 
 
     <div class="trees"></div>
-
-
-    <!-- <img class="trees" alt="trees" src="./images/trees3.svg"> -->
   </div>
-  <!-- <video autoplay muted loop id="myVideo">
-    <source src="./images/BGvideo.mp4" type="video/mp4">
-  </video> -->
-  <!-- <audio id="howling">
-    <source src="./images/howling.wav" type="audio/wav">
-
-    Your browser does not support the audio element. Too bad you can't hear this cool wolf howling.
-  </audio> -->
-
 
   <div class="background-game" id="background-game">
+    <h1 class="game-text">You are facing 20 abandoned mines. Find the matching pairs.</h1>
     <button class="restart" id="restart">Restart Game</button>
     <div class="stats">
       <div class="moves">0 moves</div>
     </div>
     <button class="restart" id="back_to_intro">Back to the Forest</button>
   </div>
-  <!-- style="background: url(./images/BG3.svg) no-repeat center center; background-size: cover" -->
+  <!-- style="background: url(./images/caveBackground.svg) no-repeat center center; background-size: cover" -->
 
 
   <!-- <h1 class="intro">Hellooo</h1>
@@ -79,11 +68,11 @@
   <div class="wrapper" id="wrapper-cards">
 
     <main class="memory-game">
-      <div class="memory-card" data-framework="Grinning Purple monster">
+      <div class="memory-card" data-framework="Grinning Purple Monster">
         <img class="front-face" src="./images/Card 1.svg" alt="Grinning Purple monster">
         <img class="back-face" src="./images/Cave.svg" alt="Memory Card">
       </div>
-      <div class="memory-card" data-framework="Grinning Purple monster">
+      <div class="memory-card" data-framework="Grinning Purple Monster">
         <img class="front-face" src="./images/Card 1.svg" alt="Grinning Purple monster">
         <img class="back-face" src="./images/Cave.svg" alt="Memory Card">
       </div>
