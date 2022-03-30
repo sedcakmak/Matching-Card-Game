@@ -1,3 +1,22 @@
+const sfx = new Howl({
+  src: ["./audio/sfx.webm", "./audio/sfx.mp3"],
+  sprite: {
+    bleeeh: [0, 841.7233560090704],
+    blop: [2000, 81.26984126984115],
+    excited: [4000, 2208.2539682539687],
+    grin: [8000, 2970.8616780045354],
+    growl: [12000, 1512.2675736961444],
+    hello: [15000, 1291.8367346938774],
+    hmph: [18000, 944.3083900226768],
+    howling: [20000, 5394.67120181406],
+    humming: [27000, 2000],
+    laugh: [30000, 1720.4535147392298],
+    sadness: [33000, 1219.138321995466],
+    wrong: [36000, 755.170068027212],
+    yippee: [38000, 1155.3514739229058],
+  },
+});
+
 var music = {
   intro: new Howl({
     src: ["./audio/intro.mp3"],
@@ -6,56 +25,13 @@ var music = {
   }),
 };
 
-var sfx = {
-  howling: new Howl({
-    src: ["./audio/howling.wav"],
-  }),
-  wrong: new Howl({
-    src: ["./audio/wrong.wav"],
-  }),
-  blop: new Howl({
-    src: ["./audio/blop.wav"],
-    // loop: false,
-    // onend: function () {
-    //   console.log("Done playing sfx!");
-    // },
-  }),
-  humming: new Howl({
-    src: ["./audio/humming.wav"],
-  }),
-  bleeeh: new Howl({
-    src: ["./audio/40838__scuzzpuck__bleeeh.wav"],
-  }),
-  grin: new Howl({
-    src: ["./audio/grin.wav"],
-  }),
-  hmph: new Howl({
-    src: ["./audio/427972__lipalearning__male-grunt.wav"],
-  }),
-  laugh: new Howl({
-    src: ["./audio/196841__omarstone__hahahaha-cartoon-monster.wav"],
-  }),
-  yippee: new Howl({
-    src: ["./audio/yippee.wav"],
-  }),
-  roar: new Howl({
-    src: ["./audio/growl.wav"],
-  }),
-  sadness: new Howl({
-    src: ["./audio/sadness.wav"],
-  }),
-  excited: new Howl({
-    src: ["./audio/excited.wav"],
-  }),
-  hello: new Howl({
-    src: ["./audio/hello.wav"],
-  }),
-};
-
-// var sound = new Howl({
-//   src: ["./audio/intro.mp3"],
-//   loop: true,
-// });
+//   blop: new Howl({
+//     src: ["./audio/blop.wav"],
+//     // loop: false,
+//     // onend: function () {
+//     //   console.log("Done playing sfx!");
+//     // },
+//   }),
 
 const pathButton = document.getElementById("intro-button");
 const startJourney = document.getElementById("start-journey");
@@ -116,7 +92,7 @@ function hideIntro() {
   backgroundElement.style.opacity = "0";
   wrapperElement.style.opacity = "1";
   bgElement.style.opacity = "1";
-  sfx.howling.play();
+  sfx.play("howling");
 
   var fadeouttime = 1500;
   setTimeout(function () {
@@ -166,7 +142,7 @@ function flipCard() {
   if (this === firstCard) return;
   this.classList.remove("flip_reset");
   this.classList.add("flip");
-  sfx.blop.play();
+  sfx.play("blop");
 
   if (!hasFlippedCard) {
     hasFlippedCard = true;
@@ -201,47 +177,47 @@ function disableCards() {
 function playMonsterSound(monster) {
   switch (monster) {
     case "Grinning Purple Monster":
-      sfx.grin.play();
+      sfx.play("grin");
 
       break;
     case "Orange Grumpy Monster":
-      sfx.hmph.play();
+      sfx.play("hmph");
 
       break;
     case "Excited Purple Monster":
-      sfx.excited.play();
+      sfx.play("excited");
 
       break;
     case "Grinning Navy Blue Monster":
-      sfx.laugh.play();
+      sfx.play("laugh");
 
       break;
     case "Happy Green Monster":
-      sfx.humming.play();
+      sfx.play("humming");
 
       break;
     case "Waving Blue Monster":
-      sfx.hello.play();
+      sfx.play("hello");
 
       break;
     case "Happy Red Monster":
-      sfx.bleeeh.play();
+      sfx.play("bleeeh");
 
       break;
     case "Red Cyclops Monster":
-      sfx.yippee.play();
+      sfx.play("yippee");
 
       break;
     case "Sad Blue Monster":
-      sfx.sadness.play();
+      sfx.play("sadness");
 
       break;
     case "Scary Pink Monster":
-      sfx.roar.play();
+      sfx.play("growl");
 
       break;
     default:
-      sfx.humming.play();
+      sfx.play("humming");
   }
 }
 
@@ -249,7 +225,7 @@ function unflipCards() {
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
-    sfx.wrong.play();
+    sfx.play("wrong");
     resetBoard();
   }, 1000);
 }
