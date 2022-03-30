@@ -358,6 +358,8 @@ p {
   position: absolute;
   border-radius: 5px;
   backface-visibility: hidden;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 .back-face {
   background-color: #8bacc7;
