@@ -114,7 +114,6 @@ function goBackToIntro() {
 function toggleSounds() {
   toggleSoundsEle.classList.toggle("music");
   musicIcon.classList.toggle("icon");
-
   return music.intro.playing() ? music.intro.pause() : music.intro.play();
 }
 
@@ -149,7 +148,6 @@ function flipCard() {
     firstCard = this;
     return;
   }
-  console.log("flipCard working");
   secondCard = this;
   lockBoard = true;
 
@@ -169,7 +167,7 @@ function disableCards() {
   secondCard.removeEventListener("click", flipCard);
   firstCard.classList.add("cardDisabled");
   secondCard.classList.add("cardDisabled");
-  console.log("disableCards working");
+
   playMonsterSound(firstCard.dataset.framework);
   resetBoard();
 }
@@ -248,10 +246,6 @@ function shuffle() {
 //   });
 // })();
 
-function flipCards() {
-  console.log("flipCards working");
-}
-
 function startOver() {
   shuffle();
   // cardElement.forEach(card => card.classList.remove("active"));
@@ -269,8 +263,5 @@ function startOver() {
   resetBoard();
 }
 
-// Back to forest:  card.classList.add("flip")
-//
-// console.log(card.getAttribute("data-framework"))
 cardElement.forEach((card) => card.addEventListener("click", flipCard));
 testEle.addEventListener("click", startOver);
