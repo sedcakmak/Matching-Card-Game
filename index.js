@@ -1,19 +1,19 @@
 const sfx = new Howl({
   src: ["./audio/sfx.webm", "./audio/sfx.mp3"],
   sprite: {
-    bleeeh: [0, 841.7233560090704],
+    Happy_Red_Monster: [0, 841.7233560090704],
     blop: [2000, 81.26984126984115],
-    excited: [4000, 2208.2539682539687],
-    grin: [8000, 2970.8616780045354],
-    growl: [12000, 1512.2675736961444],
-    hello: [15000, 1291.8367346938774],
-    hmph: [18000, 944.3083900226768],
+    Excited_Purple_Monster: [4000, 2208.2539682539687],
+    Grinning_Purple_Monster: [8000, 2970.8616780045354],
+    Scary_Pink_Monster: [12000, 1512.2675736961444],
+    Waving_Blue_Monster: [15000, 1291.8367346938774],
+    Orange_Grumpy_Monster: [18000, 944.3083900226768],
     howling: [20000, 5394.67120181406],
-    humming: [27000, 2000],
-    laugh: [30000, 1720.4535147392298],
-    sadness: [33000, 1219.138321995466],
+    Happy_Green_Monster: [27000, 2000],
+    Grinning_Navy_Blue_Monster: [30000, 1720.4535147392298],
+    Sad_Blue_Monster: [33000, 1219.138321995466],
     wrong: [36000, 755.170068027212],
-    yippee: [38000, 1155.3514739229058],
+    Red_Cyclops_Monster: [38000, 1155.3514739229058],
   },
 });
 
@@ -22,6 +22,7 @@ var music = {
     src: ["./audio/intro.mp3"],
     loop: true,
     autoplay: false,
+    volume: 1,
   }),
 };
 
@@ -49,7 +50,7 @@ backtoIntroButton.addEventListener("click", goBackToIntro);
 
 function showIntro() {
   toggleSoundsEle.style.display = "block";
-  toggleSounds();
+  music.intro.play();
   fadeIntroButton();
   setTimeout(showIntroText, 3000);
   setTimeout(showPathButton, 6500);
@@ -111,19 +112,14 @@ function goBackToIntro() {
   location.reload();
 }
 
+let isMuted = false;
+
 function toggleSounds() {
+  isMuted = !isMuted;
+  Howler.mute(isMuted);
   toggleSoundsEle.classList.toggle("music");
   musicIcon.classList.toggle("icon");
-  return music.intro.playing() ? music.intro.pause() : music.intro.play();
 }
-
-// function toggleIcon() {
-//   if (musicIcon.style.backgroundImage === "url('./images/pause.svg')") {
-//     musicIcon.style.backgroundImage = "url('./images/play.svg')";
-//   } else {
-//     musicIcon.style.backgroundImage = "url('./images/pause.svg')";
-//   }
-// }
 
 // Game Mechanics
 
@@ -168,56 +164,60 @@ function disableCards() {
   firstCard.classList.add("cardDisabled");
   secondCard.classList.add("cardDisabled");
 
-  playMonsterSound(firstCard.dataset.framework);
+  playMonsterSound2(firstCard.dataset.framework);
   resetBoard();
 }
 
-function playMonsterSound(monster) {
-  switch (monster) {
-    case "Grinning Purple Monster":
-      sfx.play("grin");
-
-      break;
-    case "Orange Grumpy Monster":
-      sfx.play("hmph");
-
-      break;
-    case "Excited Purple Monster":
-      sfx.play("excited");
-
-      break;
-    case "Grinning Navy Blue Monster":
-      sfx.play("laugh");
-
-      break;
-    case "Happy Green Monster":
-      sfx.play("humming");
-
-      break;
-    case "Waving Blue Monster":
-      sfx.play("hello");
-
-      break;
-    case "Happy Red Monster":
-      sfx.play("bleeeh");
-
-      break;
-    case "Red Cyclops Monster":
-      sfx.play("yippee");
-
-      break;
-    case "Sad Blue Monster":
-      sfx.play("sadness");
-
-      break;
-    case "Scary Pink Monster":
-      sfx.play("growl");
-
-      break;
-    default:
-      sfx.play("humming");
-  }
+function playMonsterSound2(monsterSound) {
+  sfx.play(monsterSound);
 }
+
+// function playMonsterSound(monster) {
+//   switch (monster) {
+//     case "Grinning Purple Monster":
+//       sfx.play("grin");
+
+//       break;
+//     case "Orange Grumpy Monster":
+//       sfx.play("hmph");
+
+//       break;
+//     case "Excited Purple Monster":
+//       sfx.play("excited");
+
+//       break;
+//     case "Grinning Navy Blue Monster":
+//       sfx.play("laugh");
+
+//       break;
+//     case "Happy Green Monster":
+//       sfx.play("humming");
+
+//       break;
+//     case "Waving Blue Monster":
+//       sfx.play("hello");
+
+//       break;
+//     case "Happy Red Monster":
+//       sfx.play("bleeeh");
+
+//       break;
+//     case "Red Cyclops Monster":
+//       sfx.play("yippee");
+
+//       break;
+//     case "Sad Blue Monster":
+//       sfx.play("sadness");
+
+//       break;
+//     case "Scary Pink Monster":
+//       sfx.play("growl");
+
+//       break;
+//     default:
+//       sfx.play("humming");
+//   }
+// }
 
 function unflipCards() {
   setTimeout(() => {
