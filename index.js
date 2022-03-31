@@ -154,6 +154,7 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCards() : unflipCards();
+
   moves++;
   movesEle.innerHTML = `${moves} moves`;
 }
@@ -161,10 +162,12 @@ function checkForMatch() {
 function disableCards() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
-  firstCard.classList.add("cardDisabled");
-  secondCard.classList.add("cardDisabled");
+  firstCard.classList.add("cardDisabled", "pop_in");
+  secondCard.classList.add("cardDisabled", "pop_in");
 
   playMonsterSound2(firstCard.dataset.framework);
+  // firstCard.classList.add("pop_in");
+  // secondCard.classList.add("pop_in");
   resetBoard();
 }
 
@@ -219,6 +222,18 @@ function playMonsterSound2(monsterSound) {
 //   }
 // }
 
+function pop_in(card) {
+  console.log("popin working");
+  card.style.transitionDuration = "0.2s";
+  card.style.transform = " scale(1.5)";
+  card.style.transitionDelay = "5s";
+
+  setTimeout(() => {
+    card.style.transitionDuration = "0.07s";
+    card.style.transform = " scale(1)";
+  }, 200);
+}
+
 function unflipCards() {
   setTimeout(() => {
     firstCard.classList.remove("flip");
@@ -247,17 +262,19 @@ function shuffle() {
 // })();
 
 function startOver() {
-  shuffle();
+  console.log("startover working");
+
   // cardElement.forEach(card => card.classList.remove("active"));
   movesEle.innerHTML = `0 moves`;
   moves = 0;
   cardElement.forEach((card) => {
     if (card.classList.contains("cardDisabled")) {
       card.classList.add("flip_reset");
-      card.classList.remove("cardDisabled");
+      card.classList.remove("cardDisabled", "pop_in");
     }
     card.addEventListener("click", flipCard);
   });
+  shuffle();
   hasFlippedCard = false;
   lockBoard = false;
   resetBoard();

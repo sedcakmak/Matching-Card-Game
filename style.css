@@ -273,41 +273,58 @@ p {
   }
 }
 
-@keyframes zoom-in-zoom-out {
+/* @keyframes zoom-in-zoom-out {
   0% {
-    transform: scale(1, 1);
+    transform: rotateY(180deg) scale(1, 1);
+  }
+  25% {
+    transform: rotateY(180deg) scale(1.2, 1.2);
   }
   50% {
-    transform: scale(1.1, 1.1);
+    transform: rotateY(180deg) scale(1, 1);
+  }
+  70% {
+    transform: rotateY(180deg) scale(1.2, 1.2);
   }
   100% {
-    transform: scale(1, 1);
+    transform: rotateY(180deg) scale(1, 1);
+  }
+} */
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: rotateY(180deg) scale(1, 1);
+  }
+  50% {
+    transform: rotateY(180deg) scale(1.2, 1.2);
+  }
+  100% {
+    transform: rotateY(180deg) scale(1, 1);
   }
 }
 
 @keyframes wiggle {
   0%,
   7% {
-    transform: rotateZ(0);
+    transform: rotateY(180deg) rotateZ(0);
   }
   15% {
-    transform: rotateZ(-15deg);
+    transform: rotateY(180deg) rotateZ(-15deg);
   }
   20% {
-    transform: rotateZ(10deg);
+    transform: rotateY(180deg) rotateZ(10deg);
   }
   25% {
-    transform: rotateZ(-10deg);
+    transform: rotateY(180deg) rotateZ(-10deg);
   }
   30% {
-    transform: rotateZ(6deg);
+    transform: rotateY(180deg) rotateZ(6deg);
   }
   35% {
-    transform: rotateZ(-4deg);
+    transform: rotateY(180deg) rotateZ(-4deg);
   }
   40%,
   100% {
-    transform: rotateZ(0);
+    transform: rotateY(180deg) rotateZ(0);
   }
 }
 
@@ -376,7 +393,17 @@ p {
   transform: rotate(360deg);
   transition: transform 0s;
 }
+.memory-card.pop_in {
+  /*transform: scale(1.5); */
 
+  animation: wiggle 0.5s 1;
+  animation-delay: 0.4s;
+  /*animation: wiggle 5s 1;   */
+}
+.memory-card.pop_out {
+  transition-duration: 0.2s;
+  transform: scale(1);
+}
 /* @media (min-width: 600px) {
   .memory-game {
     grid-template-columns: repeat(4, 1fr);
@@ -393,3 +420,42 @@ p {
     padding: 5px;
   }
 } */
+.img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.span {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  font-size: 28px;
+  z-index: 9999;
+  text-align: center;
+  padding: 70px 0 0 0;
+  font-weight: bold;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-content {
+  position: absolute;
+  background: url("https://res.cloudinary.com/dvpavvw1u/image/upload/v1648678198/Untitled_design_1_w1pvvy.gif");
+  background-size: cover;
+  height: 500px;
+}
+
+.modal {
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: purple !important;
+  /*width: 190px;*/
+}
