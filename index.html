@@ -24,19 +24,18 @@
   </button>
 
   <div class="background-intro" id="background-intro">
-
     <div class="stars"> </div>
     <div class="twinkling"> </div>
     <div class="clouds"> </div>
-    <button id="start-journey">Start The Journey</button>
+    <button class="intro-button" id="start-journey">Start The Journey</button>
     <p></p>
-    <button id="intro-button">Take The Path</button>
+    <button class="intro-button" id="take-path">Take The Path</button>
     <div class="trees"></div>
   </div>
 
   <div class="background-game" id="background-game">
     <h1 class="game-text">You are facing 20 abandoned mines. Find the matching pairs.</h1>
-    <button class="restart">Restart Game</button>
+    <!-- <button class="restart" id="restart_game">Restart Game</button> -->
     <div class="stats">
       <div class="moves">0 moves</div>
     </div>
@@ -61,8 +60,9 @@
           <div class="modal-footer border-0">
             <div class="d-grid gap-2 mx-auto">
 
-              <button type="button" class="btn btn-primary btn-lg" id="restart" data-dismiss="modal">New Game</button>
-              <button type="button" class="btn btn-success btn-lg" id="back_to_intro">Back to the Forest</button>
+              <button type="button" class="btn btn-primary btn-lg" id="restart" data-dismiss="modal">New
+                Game</button>
+              <button type="button" class="restart" id="back_to_intro">Back to the Forest</button>
 
             </div>
           </div>

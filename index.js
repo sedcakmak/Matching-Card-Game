@@ -37,7 +37,7 @@ var music = {
 //     // },
 //   }),
 
-const pathButton = document.getElementById("intro-button");
+const pathButton = document.getElementById("take-path");
 const startJourney = document.getElementById("start-journey");
 const backgroundElement = document.getElementById("background-intro");
 const wrapperElement = document.getElementById("wrapper-cards");
@@ -47,7 +47,7 @@ const toggleSoundsEle = document.getElementById("toggle_sounds");
 const musicIcon = document.querySelector(".music_icon");
 
 pathButton.addEventListener("click", hideIntro);
-startJourney.addEventListener("click", showIntro);
+startJourney.addEventListener("click", showIntro, { once: true });
 toggleSoundsEle.addEventListener("click", toggleSounds);
 backtoIntroButton.addEventListener("click", goBackToIntro);
 
