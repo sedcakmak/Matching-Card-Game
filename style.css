@@ -100,8 +100,7 @@ body {
 .moves {
   color: white;
   padding: 17px 30px;
-  width: 80px;
-  background: linear-gradient(286deg, #00d301, #36c275 50%, #00a562);
+  float: left;
 }
 
 .trees {
@@ -135,12 +134,12 @@ body {
   font-size: 20px;
   font-weight: 700;
   padding: 13px 20px;
-  background-color: white;
-  opacity: 0.7;
+  background-color: #b2b2b2;
+
   border-radius: 8px;
   color: black;
   height: 4rem;
-  /* transition: all 0.2s; */
+  transition: background-color 5s;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -150,11 +149,14 @@ body {
   /* outline-color: #aaa9ad;
   outline-style: double; */
   box-shadow: 0 0 5px 5px rgb(46, 46, 46);
-  opacity: 1;
+  background-color: white;
 }
 .intro-button:active {
   transform: translateY(2px);
   transition-duration: 0.35s;
+}
+
+.intro-button:focus {
   border: none;
   outline: none;
 }
@@ -180,7 +182,7 @@ body {
 
 #start-journey {
   transition: opacity 2s ease-in;
-  /* border-radius: 10px 100px / 120px; */
+  border-radius: 10px 100px / 120px;
 }
 #take-path {
   opacity: 0;

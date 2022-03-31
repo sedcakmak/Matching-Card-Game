@@ -128,7 +128,8 @@ function toggleSounds() {
 
 const cardElement = document.querySelectorAll(".memory-card");
 const testEle = document.getElementById("restart");
-const movesEle = document.querySelector("#moves");
+const movesEle = document.getElementById("moves");
+const modalEle = document.querySelector(".modal-body");
 
 let moves = 0;
 let hasFlippedCard = false;
@@ -160,7 +161,10 @@ function checkForMatch() {
   isMatch ? disableCards() : unflipCards();
 
   moves++;
-  movesEle.innerHTML = `You did it in ${moves} moves!`;
+  movesEle.textContent = `Moves: ${moves}`;
+
+  //console.log(localStorage.getItem("score"));
+  console.log(getKeyOrDefault("score"));
 }
 
 function disableCards() {
@@ -183,9 +187,10 @@ function checkWin() {
     }
     if (disabledCards.length === 20) {
       sfx.stop();
+      bestScore();
+      modalText();
       setTimeout(function () {
         $("#gameWonModal").modal("toggle");
-
         music.victory.play();
       }, 500);
     }
@@ -209,6 +214,28 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
+function getKeyOrDefault(key, defaultValue = 1000) {
+  return localStorage.getItem(key) || defaultValue;
+}
+
+function bestScore() {
+  //let bestScore = parseInt(localStorage.getItem("score")) || 1000;
+  let bestScore = parseInt(getKeyOrDefault("score"));
+
+  if (bestScore > moves) {
+    localStorage.setItem("score", moves);
+    console.log(`moves: ${moves} best score: ${bestScore}`);
+  } else {
+    console.log("best score is" + " " + bestScore);
+  }
+}
+
+function modalText() {
+  modalEle.textContent = `You did it in ${moves} moves! Your best score is: ${localStorage.getItem(
+    "score"
+  )}`;
+}
+
 function shuffle() {
   cardElement.forEach((card) => {
     let randomPosition = Math.floor(Math.random() * 20);
@@ -224,10 +251,8 @@ function shuffle() {
 // })();
 
 function startOver() {
-  console.log("startover working");
-
   // cardElement.forEach(card => card.classList.remove("active"));
-  movesEle.innerHTML = `0 moves`;
+  movesEle.textContent = "Moves: 0";
   moves = 0;
   cardElement.forEach((card) => {
     if (card.classList.contains("cardDisabled")) {
