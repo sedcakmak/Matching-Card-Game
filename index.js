@@ -24,6 +24,9 @@ var music = {
     autoplay: false,
     volume: 1,
   }),
+  victory: new Howl({
+    src: ["./audio/victory.wav", "./audio/victory.mp3"],
+  }),
 };
 
 //   blop: new Howl({
@@ -66,7 +69,7 @@ function fadeIntroButton() {
 
 function showIntroText() {
   var content =
-    "Under a starry night, you find yourself in a pitch black forest. You see only one path to move forward. ";
+    "Under a starry night, you found yourself in a pitch black forest. There is only one path to move forward. ";
 
   var ele = "<span>" + content.split("").join("</span><span>") + "</span>";
 
@@ -117,7 +120,7 @@ let isMuted = false;
 function toggleSounds() {
   isMuted = !isMuted;
   Howler.mute(isMuted);
-  toggleSoundsEle.classList.toggle("music");
+  toggleSoundsEle.classList.toggle("music_backgroundColor");
   musicIcon.classList.toggle("icon");
 }
 
@@ -125,7 +128,7 @@ function toggleSounds() {
 
 const cardElement = document.querySelectorAll(".memory-card");
 const testEle = document.getElementById("restart");
-const movesEle = document.querySelector(".moves");
+const movesEle = document.querySelector("#moves");
 
 let moves = 0;
 let hasFlippedCard = false;
@@ -148,6 +151,7 @@ function flipCard() {
   lockBoard = true;
 
   checkForMatch();
+  checkWin();
 }
 
 function checkForMatch() {
@@ -156,7 +160,7 @@ function checkForMatch() {
   isMatch ? disableCards() : unflipCards();
 
   moves++;
-  movesEle.innerHTML = `${moves} moves`;
+  movesEle.innerHTML = `You did it in ${moves} moves!`;
 }
 
 function disableCards() {
@@ -165,73 +169,31 @@ function disableCards() {
   firstCard.classList.add("cardDisabled", "pop_in");
   secondCard.classList.add("cardDisabled", "pop_in");
 
-  playMonsterSound2(firstCard.dataset.framework);
+  playMonsterSound(firstCard.dataset.framework);
   // firstCard.classList.add("pop_in");
   // secondCard.classList.add("pop_in");
   resetBoard();
 }
 
-function playMonsterSound2(monsterSound) {
-  sfx.play(monsterSound);
+function checkWin() {
+  let disabledCards = [];
+  cardElement.forEach((card) => {
+    if (card.classList.contains("cardDisabled")) {
+      disabledCards.push(card);
+    }
+    if (disabledCards.length === 20) {
+      sfx.stop();
+      setTimeout(function () {
+        $("#gameWonModal").modal("toggle");
+
+        music.victory.play();
+      }, 500);
+    }
+  });
 }
 
-// function playMonsterSound(monster) {
-//   switch (monster) {
-//     case "Grinning Purple Monster":
-//       sfx.play("grin");
-
-//       break;
-//     case "Orange Grumpy Monster":
-//       sfx.play("hmph");
-
-//       break;
-//     case "Excited Purple Monster":
-//       sfx.play("excited");
-
-//       break;
-//     case "Grinning Navy Blue Monster":
-//       sfx.play("laugh");
-
-//       break;
-//     case "Happy Green Monster":
-//       sfx.play("humming");
-
-//       break;
-//     case "Waving Blue Monster":
-//       sfx.play("hello");
-
-//       break;
-//     case "Happy Red Monster":
-//       sfx.play("bleeeh");
-
-//       break;
-//     case "Red Cyclops Monster":
-//       sfx.play("yippee");
-
-//       break;
-//     case "Sad Blue Monster":
-//       sfx.play("sadness");
-
-//       break;
-//     case "Scary Pink Monster":
-//       sfx.play("growl");
-
-//       break;
-//     default:
-//       sfx.play("humming");
-//   }
-// }
-
-function pop_in(card) {
-  console.log("popin working");
-  card.style.transitionDuration = "0.2s";
-  card.style.transform = " scale(1.5)";
-  card.style.transitionDelay = "5s";
-
-  setTimeout(() => {
-    card.style.transitionDuration = "0.07s";
-    card.style.transform = " scale(1)";
-  }, 200);
+function playMonsterSound(monsterSound) {
+  sfx.play(monsterSound);
 }
 
 function unflipCards() {
