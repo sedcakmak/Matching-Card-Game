@@ -23,7 +23,7 @@ body {
   /* transition: opacity ease-in 8s; */
   transition-delay: display 5s;
   display: none;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 /* .restart {
   display: inline-block;
@@ -99,11 +99,13 @@ body {
 }
 
 .moves {
-  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  color: #f5f5dc;
   padding: 17px 30px;
   float: left;
-  font-weight: bold;
   font-size: 22px;
+  text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
 
 .boardStats {
@@ -228,22 +230,27 @@ body {
   z-index: 9999;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 8em;
+  padding-top: 7em;
   position: relative;
   background-color: transparent;
+  text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
   /* letter-spacing: 2.5px; */
 }
 .game-text {
   font-family: "Libre Baskerville", serif;
   font-size: 20px;
-  font-weight: normal;
-  width: 67%;
-  color: white;
+  font-weight: bold;
+  width: 60%;
+  color: #f5f5dc;
   z-index: 9999;
-
+  line-height: 1.7;
   margin: 40px auto 20px;
   position: relative;
   text-align: center;
+  opacity: 0;
+  transition: opacity 2s ease-out;
+  letter-spacing: 1px;
+  text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
 
 .mid {
@@ -255,16 +262,9 @@ body {
 .rocker {
   display: inline-block;
   position: relative;
-  /*
-  SIZE OF SWITCH
-  ==============
-  All sizes are in em - therefore
-  changing the font-size here
-  will change the size of the switch.
-  See .rocker-small below as example.
-  */
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 700;
   text-align: center;
   color: #888;
   width: 7em;
@@ -315,7 +315,7 @@ body {
 .switch-right {
   right: 0.5em;
   bottom: 0;
-  background-color: #8bacc7;
+  background-color: #a84e04;
   /*background-color: #835e3d;*/
   color: #fff;
 }
@@ -342,7 +342,7 @@ body {
 }
 
 input:checked + .switch-left {
-  background-color: #02345d;
+  background-color: #045ea8;
   color: #fff;
   bottom: 0px;
   left: 0.5em;
@@ -449,18 +449,6 @@ input:checked + .switch-left + .switch-right::before {
     background-position: 10000px 0;
   }
 }
-/* @keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.2, 1.2);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-} */
-
 @keyframes wiggle {
   0%,
   7% {
@@ -494,7 +482,7 @@ input:checked + .switch-left + .switch-right::before {
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
-  padding-top: 40px;
+  padding-top: 70px;
 }
 
 .memory-card {
@@ -555,6 +543,7 @@ input:checked + .switch-left + .switch-right::before {
 
 .span,
 .modal-body {
+  font-family: "Source Sans Pro", sans-serif;
   position: relative;
   bottom: 0;
   left: 0;
@@ -562,24 +551,31 @@ input:checked + .switch-left + .switch-right::before {
   z-index: 9999;
   text-align: center;
   padding: 70px 0 0 0;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.span {
+  text-shadow: 0.07em 0 white, 0 0.07em white, -0.07em 0 white, 0 -0.07em white;
+  color: #36c275;
+  /* #ffff00; */
+}
+
+#moves-text,
+#best-score {
+  text-shadow: 0.07em 0 rgb(205, 98, 205), 0 0.07em rgb(205, 98, 205),
+    -0.07em 0 rgb(205, 98, 205), 0 -0.07em rgb(205, 98, 205);
+  color: white;
 }
 
 .modal-content {
   position: absolute;
-  /* background: url("https://res.cloudinary.com/dvpavvw1u/image/upload/v1648678198/Untitled_design_1_w1pvvy.gif"); */
-  background: url(./images/purple1.gif);
+  background: url(./images/purple.gif);
   background-size: cover;
   height: 500px;
 }
 
 .modal {
   border-radius: 10px;
-}
-
-.btn-primary {
-  background-color: purple !important;
-  /*width: 190px;*/
 }
 
 /* @media (min-width: 600px) {
@@ -605,9 +601,7 @@ input:checked + .switch-left + .switch-right::before {
     font-size: 14px;
     max-width: 300px;
   }
-  .memory-card {
-    width: 100%;
-  }
+
   .front-face,
   .back-face {
     padding: 5px;

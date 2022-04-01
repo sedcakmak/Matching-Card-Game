@@ -27,15 +27,10 @@ var music = {
   victory: new Howl({
     src: ["./audio/win.wav"],
   }),
+  click: new Howl({
+    src: ["./audio/click.wav"],
+  }),
 };
-
-//   blop: new Howl({
-//     src: ["./audio/blop.wav"],
-//     // loop: false,
-//     // onend: function () {
-//     //   console.log("Done playing sfx!");
-//     // },
-//   }),
 
 const pathButton = document.getElementById("take-path");
 const startJourney = document.getElementById("start-journey");
@@ -45,22 +40,14 @@ const backtoIntroButton = document.getElementById("back_to_intro");
 const backgroundGame = document.getElementById("background-game");
 const toggleSoundsEle = document.getElementById("toggle_sounds");
 const musicIcon = document.querySelector(".music_icon");
+const checkboxEle = document.getElementById("checkbox");
+const gameText = document.querySelector(".game-text");
 
-pathButton.addEventListener("click", hideIntro);
+pathButton.addEventListener("click", showGameBoard);
 startJourney.addEventListener("click", showIntro, { once: true });
 toggleSoundsEle.addEventListener("click", toggleSounds);
 backtoIntroButton.addEventListener("click", goBackToIntro);
-checkboxEle = document.getElementById("checkbox");
-
 checkboxEle.addEventListener("click", switchToggle);
-
-function switchToggle(event) {
-  if (event.target.value === "on") {
-    event.target.value = "off";
-  } else {
-    event.target.value = "on";
-  }
-}
 
 function showIntro() {
   toggleSoundsEle.style.display = "block";
@@ -106,10 +93,11 @@ function showIntroText() {
     });
 }
 
-function hideIntro() {
+function showGameBoard() {
   backgroundIntro.style.opacity = "0";
   wrapperElement.style.opacity = "1";
   backgroundGame.style.opacity = "1";
+
   sfx.play("howling");
 
   var fadeouttime = 1500;
@@ -121,6 +109,7 @@ function hideIntro() {
     backgroundIntro.style.display = "none";
   }, 2000);
   setTimeout(function () {
+    gameText.style.opacity = "1";
     wrapperElement.style.display = "block";
     shuffle();
   }, 4000);
@@ -138,10 +127,19 @@ function toggleSounds() {
   musicIcon.classList.toggle("icon");
 }
 
+function switchToggle(event) {
+  music.click.play();
+  if (event.target.value === "on") {
+    event.target.value = "off";
+  } else {
+    event.target.value = "on";
+  }
+}
+
 // Game Mechanics
 
 const cardElement = document.querySelectorAll(".memory-card");
-const testEle = document.getElementById("restart");
+const restartButton = document.getElementById("restart");
 const movesEle = document.getElementById("moves");
 const modalEle = document.querySelector(".modal-body");
 const bestScoreBoardText = document.getElementById("best-score-text");
@@ -166,7 +164,7 @@ function flipCard() {
   }
   secondCard = this;
   lockBoard = true;
-  //console.log(getKeyOrDefault("score"));
+
   checkForMatch();
   checkWin();
 }
@@ -192,6 +190,7 @@ function disableCards() {
 
 function checkWin() {
   let disabledCards = [];
+
   cardElement.forEach((card) => {
     if (card.classList.contains("cardDisabled")) {
       disabledCards.push(card);
@@ -266,18 +265,11 @@ function shuffle() {
   });
 }
 
-// (function shuffle() {
-//   cardElement.forEach((card) => {
-//     let randomPosition = Math.floor(Math.random() * 20);
-//     card.style.order = randomPosition;
-//   });
-// })();
-
 function startOver() {
-  // cardElement.forEach(card => card.classList.remove("active"));
   movesEle.textContent = "Moves: 0";
   bestScoreBoard();
   moves = 0;
+
   cardElement.forEach((card) => {
     if (card.classList.contains("cardDisabled")) {
       card.classList.add("flip_reset");
@@ -285,6 +277,7 @@ function startOver() {
     }
     card.addEventListener("click", flipCard);
   });
+
   shuffle();
   hasFlippedCard = false;
   lockBoard = false;
@@ -292,4 +285,4 @@ function startOver() {
 }
 
 cardElement.forEach((card) => card.addEventListener("click", flipCard));
-testEle.addEventListener("click", startOver);
+restartButton.addEventListener("click", startOver);

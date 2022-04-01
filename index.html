@@ -9,12 +9,14 @@
   <!-- alttakini degistir -->
   <meta property="og:image" content="images/discworldbackground.jpg" />
   <meta property="og:description" content="Memory Matching Card Game" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Source+Sans+Pro:wght@600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -34,7 +36,11 @@
   </div>
 
   <div class="background-game" id="background-game">
-    <h1 class="game-text">You are facing 20 abandoned mines. Find the matching pairs.</h1>
+    <h1 class="game-text">The path took you to a group of abandoned mines where evil monsters reside. <br> You need
+      to
+      find the matching monsters to
+      continue your way.</h1>
+    <!-- <h1 class="game-text">You are facing 20 abandoned mines. Find the matching pairs.</h1> -->
     <!-- <button class="restart" id="restart_game">Restart Game</button> -->
     <div class="boardStats">
       <div class="moves" id="moves">Moves: 0</div>
@@ -59,7 +65,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <!--<img class= "img" src ="https://res.cloudinary.com/dvpavvw1u/image/upload/v1633041452/symbol-scatter-haikei_1_g8jodx.png" > -->
-          <span class="span"> Congratulations you won!</span>
+          <span class="span"> Congratulations you found all the monsters!</span>
           <!-- <img class="line" src="https://res.cloudinary.com/dvpavvw1u/image/upload/v1648677233/9_auymu1.svg"> -->
           <div class="modal-body">
             <span id="moves-text"></span>
