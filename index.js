@@ -25,7 +25,7 @@ var music = {
     volume: 1,
   }),
   victory: new Howl({
-    src: ["./audio/victory.wav", "./audio/victory.mp3"],
+    src: ["./audio/win.wav"],
   }),
 };
 
@@ -39,10 +39,10 @@ var music = {
 
 const pathButton = document.getElementById("take-path");
 const startJourney = document.getElementById("start-journey");
-const backgroundElement = document.getElementById("background-intro");
+const backgroundIntro = document.getElementById("background-intro");
 const wrapperElement = document.getElementById("wrapper-cards");
 const backtoIntroButton = document.getElementById("back_to_intro");
-const bgElement = document.getElementById("background-game");
+const backgroundGame = document.getElementById("background-game");
 const toggleSoundsEle = document.getElementById("toggle_sounds");
 const musicIcon = document.querySelector(".music_icon");
 
@@ -50,6 +50,17 @@ pathButton.addEventListener("click", hideIntro);
 startJourney.addEventListener("click", showIntro, { once: true });
 toggleSoundsEle.addEventListener("click", toggleSounds);
 backtoIntroButton.addEventListener("click", goBackToIntro);
+checkboxEle = document.getElementById("checkbox");
+
+checkboxEle.addEventListener("click", switchToggle);
+
+function switchToggle(event) {
+  if (event.target.value === "on") {
+    event.target.value = "off";
+  } else {
+    event.target.value = "on";
+  }
+}
 
 function showIntro() {
   toggleSoundsEle.style.display = "block";
@@ -57,6 +68,9 @@ function showIntro() {
   fadeIntroButton();
   setTimeout(showIntroText, 3000);
   setTimeout(showPathButton, 6500);
+  setTimeout(function () {
+    startJourney.style.display = "none";
+  }, 2000);
 }
 
 function showPathButton() {
@@ -93,9 +107,9 @@ function showIntroText() {
 }
 
 function hideIntro() {
-  backgroundElement.style.opacity = "0";
+  backgroundIntro.style.opacity = "0";
   wrapperElement.style.opacity = "1";
-  bgElement.style.opacity = "1";
+  backgroundGame.style.opacity = "1";
   sfx.play("howling");
 
   var fadeouttime = 1500;
@@ -104,7 +118,7 @@ function hideIntro() {
   }, fadeouttime);
 
   setTimeout(function () {
-    backgroundElement.style.display = "none";
+    backgroundIntro.style.display = "none";
   }, 2000);
   setTimeout(function () {
     wrapperElement.style.display = "block";
@@ -130,8 +144,10 @@ const cardElement = document.querySelectorAll(".memory-card");
 const testEle = document.getElementById("restart");
 const movesEle = document.getElementById("moves");
 const modalEle = document.querySelector(".modal-body");
+const bestScoreBoardText = document.getElementById("best-score-text");
 
 let moves = 0;
+
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -150,7 +166,7 @@ function flipCard() {
   }
   secondCard = this;
   lockBoard = true;
-
+  //console.log(getKeyOrDefault("score"));
   checkForMatch();
   checkWin();
 }
@@ -162,9 +178,6 @@ function checkForMatch() {
 
   moves++;
   movesEle.textContent = `Moves: ${moves}`;
-
-  //console.log(localStorage.getItem("score"));
-  console.log(getKeyOrDefault("score"));
 }
 
 function disableCards() {
@@ -174,8 +187,6 @@ function disableCards() {
   secondCard.classList.add("cardDisabled", "pop_in");
 
   playMonsterSound(firstCard.dataset.framework);
-  // firstCard.classList.add("pop_in");
-  // secondCard.classList.add("pop_in");
   resetBoard();
 }
 
@@ -201,13 +212,20 @@ function playMonsterSound(monsterSound) {
   sfx.play(monsterSound);
 }
 
+let resetTime = 1000;
 function unflipCards() {
+  if (checkboxEle.value === "off") {
+    resetTime = 2500;
+  } else {
+    resetTime = 1000;
+  }
+
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
     sfx.play("wrong");
     resetBoard();
-  }, 1000);
+  }, resetTime);
 }
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
@@ -219,21 +237,26 @@ function getKeyOrDefault(key, defaultValue = 1000) {
 }
 
 function bestScore() {
-  //let bestScore = parseInt(localStorage.getItem("score")) || 1000;
   let bestScore = parseInt(getKeyOrDefault("score"));
-
-  if (bestScore > moves) {
-    localStorage.setItem("score", moves);
-    console.log(`moves: ${moves} best score: ${bestScore}`);
-  } else {
-    console.log("best score is" + " " + bestScore);
-  }
+  if (bestScore > moves) localStorage.setItem("score", moves);
 }
 
+function bestScoreBoard() {
+  if (getKeyOrDefault("score") === 1000) {
+    bestScoreBoardText.textContent = `Best Score:`;
+  } else {
+    bestScoreBoardText.textContent = `Best Score: ${getKeyOrDefault("score")}`;
+  }
+}
+bestScoreBoard();
+
 function modalText() {
-  modalEle.textContent = `You did it in ${moves} moves! Your best score is: ${localStorage.getItem(
+  movesText = document.getElementById("moves-text");
+  bestScoreText = document.getElementById("best-score");
+  movesText.textContent = `You did it in ${moves} moves.`;
+  bestScoreText.textContent = `Your best score is: ${localStorage.getItem(
     "score"
-  )}`;
+  )}!`;
 }
 
 function shuffle() {
@@ -253,6 +276,7 @@ function shuffle() {
 function startOver() {
   // cardElement.forEach(card => card.classList.remove("active"));
   movesEle.textContent = "Moves: 0";
+  bestScoreBoard();
   moves = 0;
   cardElement.forEach((card) => {
     if (card.classList.contains("cardDisabled")) {

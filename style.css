@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 /* html {
   height: 100%;
@@ -24,7 +25,7 @@ body {
   display: none;
   margin-top: 40px;
 }
-.restart {
+/* .restart {
   display: inline-block;
   outline: 0;
   text-align: center;
@@ -40,7 +41,7 @@ body {
   font-weight: 800;
   transition: background color 0.1s ease-in-out;
   border-radius: 10px;
-}
+} */
 #toggle_sounds {
   z-index: 3;
   /* margin-left: auto;
@@ -101,6 +102,13 @@ body {
   color: white;
   padding: 17px 30px;
   float: left;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.boardStats {
+  display: flex;
+  flex-direction: column;
 }
 
 .trees {
@@ -135,7 +143,6 @@ body {
   font-weight: 700;
   padding: 13px 20px;
   background-color: #b2b2b2;
-
   border-radius: 8px;
   color: black;
   height: 4rem;
@@ -145,9 +152,6 @@ body {
 }
 
 .intro-button:hover {
-  /* box-shadow: white 0 1px 2px 2px; */
-  /* outline-color: #aaa9ad;
-  outline-style: double; */
   box-shadow: 0 0 5px 5px rgb(46, 46, 46);
   background-color: white;
 }
@@ -161,24 +165,49 @@ body {
   outline: none;
 }
 
-@media (min-width: 768px) {
-  .intro-button {
-    padding: 0 2.6rem;
-  }
-}
-
-/* .intro-button {
-  z-index: 3;
-  margin-top: 10em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
+.restart {
+  display: inline-block;
+  outline: 0;
   text-align: center;
-  display: block;
-  position: relative;
   cursor: pointer;
-  font-family: "Libre Baskerville", serif;
-} */
+  padding: 17px 30px;
+  color: #fff;
+  font-size: 17.5px;
+  background: #00d301;
+  background: -webkit-linear-gradient(-196deg, #00d301, #36c275 50%, #00a562);
+  background: -webkit-linear-gradient(164deg, #00d301, #36c275 50%, #00a562);
+  background: linear-gradient(286deg, #00d301, #36c275 50%, #00a562);
+  line-height: 30px;
+  font-weight: 800;
+  transition: background color 0.1s ease-in-out;
+  border-radius: 10px;
+}
+.new-game {
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  padding: 17px 30px;
+  color: #fff;
+  font-size: 17.5px;
+  background: rgb(205, 98, 205);
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(180, 63, 117, 1) 26%,
+    rgba(209, 20, 185, 1) 73%,
+    rgba(205, 98, 205, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(180, 63, 117, 1) 26%,
+    rgba(209, 20, 185, 1) 73%,
+    rgba(205, 98, 205, 1) 100%
+  );
+  line-height: 30px;
+  font-weight: 800;
+  transition: background color 0.1s ease-in-out;
+  border-radius: 10px;
+}
 
 #start-journey {
   transition: opacity 2s ease-in;
@@ -189,7 +218,7 @@ body {
   transition: opacity 2.5s ease-in;
 }
 
-p {
+.intro-text {
   font-family: "Libre Baskerville", serif;
   font-size: 28px;
   font-weight: normal;
@@ -199,6 +228,7 @@ p {
   z-index: 9999;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 8em;
   position: relative;
   background-color: transparent;
   /* letter-spacing: 2.5px; */
@@ -207,13 +237,137 @@ p {
   font-family: "Libre Baskerville", serif;
   font-size: 20px;
   font-weight: normal;
-  width: 800px;
+  width: 67%;
   color: white;
   z-index: 9999;
 
   margin: 40px auto 20px;
   position: relative;
   text-align: center;
+}
+
+.mid {
+  display: flex;
+  padding-left: 2em;
+}
+
+/* Switch starts here */
+.rocker {
+  display: inline-block;
+  position: relative;
+  /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  color: #888;
+  width: 7em;
+  height: 4em;
+  overflow: hidden;
+  border-bottom: 0.5em solid #eee;
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-left,
+.switch-right {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: 3em;
+  transition: 0.2s;
+}
+
+.switch-left {
+  height: 2.4em;
+  width: 2.75em;
+  left: 0.85em;
+  bottom: 0.4em;
+  background-color: #ddd;
+  transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+  right: 0.5em;
+  bottom: 0;
+  background-color: #8bacc7;
+  /*background-color: #835e3d;*/
+  color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  transform: skewY(-65deg);
+}
+
+.switch-left::before {
+  left: -0.4em;
+}
+
+.switch-right::before {
+  right: -0.375em;
+  background-color: transparent;
+  transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+  background-color: #02345d;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.5em;
+  width: 3em;
+  transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switch-left::before {
+  background-color: transparent;
+  width: 3.0833em;
+}
+
+input:checked + .switch-left + .switch-right {
+  background-color: #ddd;
+  color: #888;
+  bottom: 0.4em;
+  right: 0.8em;
+  height: 2.4em;
+  width: 2.75em;
+  transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switch-left + .switch-right::before {
+  background-color: #ccc;
 }
 
 #audio-intro {
@@ -231,7 +385,6 @@ p {
   opacity: 0;
   transition: opacity ease-in 2s;
   transition-delay: 1s;
-  border: 2px red solid;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -395,29 +548,13 @@ p {
   animation-delay: 0.4s;
 }
 
-/* @media (min-width: 600px) {
-  .memory-game {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media (min-width: 900px) {
-  .memory-game {
-    grid-template-columns: repeat(5, 1fr);
-  }
-} */
-/* @media only screen and (min-device-width: 320px) and (max-device-width: 760px) and (orientation: landscape) {
-  .front-face,
-  .back-face {
-    padding: 5px;
-  }
-} */
 .img {
   width: 100%;
   border-radius: 10px;
 }
 
 .span,
-#moves {
+.modal-body {
   position: relative;
   bottom: 0;
   left: 0;
@@ -426,14 +563,6 @@ p {
   text-align: center;
   padding: 70px 0 0 0;
   font-weight: bold;
-}
-
-.line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
 }
 
 .modal-content {
@@ -451,4 +580,36 @@ p {
 .btn-primary {
   background-color: purple !important;
   /*width: 190px;*/
+}
+
+/* @media (min-width: 600px) {
+  .memory-game {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} */
+/* @media (min-width: 900px) {
+  .memory-game {
+    grid-template-columns: repeat(5, 1fr);
+  }
+} */
+/* and (orientation: landscape) */
+
+@media (min-width: 768px) {
+  .intro-button {
+    padding: 0 2.6rem;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 760px) {
+  .intro-text {
+    font-size: 14px;
+    max-width: 300px;
+  }
+  .memory-card {
+    width: 100%;
+  }
+  .front-face,
+  .back-face {
+    padding: 5px;
+  }
 }

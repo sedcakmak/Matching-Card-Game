@@ -28,7 +28,7 @@
     <div class="twinkling"> </div>
     <div class="clouds"> </div>
     <button class="intro-button" id="start-journey">Start The Journey</button>
-    <p></p>
+    <p class="intro-text"></p>
     <button class="intro-button" id="take-path">Take The Path</button>
     <div class="trees"></div>
   </div>
@@ -36,28 +36,40 @@
   <div class="background-game" id="background-game">
     <h1 class="game-text">You are facing 20 abandoned mines. Find the matching pairs.</h1>
     <!-- <button class="restart" id="restart_game">Restart Game</button> -->
+    <div class="boardStats">
+      <div class="moves" id="moves">Moves: 0</div>
+      <div class="moves" id="best-score-text"></div>
+      <div class="mid">
+        <label class="rocker">
+          <input type="checkbox" id="checkbox" checked>
+          <span class="switch-left active">Fast</span>
+          <span class="switch-right">Slow</span>
+        </label>
+      </div>
+    </div>
 
-    <div class="moves" id="moves">Moves: 0</div>
-
-    <button class="restart">Back to the Forest</button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#gameWonModal">
+    <!-- <button class="restart">Back to the Forest</button>
+    <button type="button" class="new-game" data-toggle="modal" data-target="#gameWonModal">
       Launch demo modal
-    </button>
+    </button> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="gameWonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
+    <div class="modal fade" id="gameWonModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <!--<img class= "img" src ="https://res.cloudinary.com/dvpavvw1u/image/upload/v1633041452/symbol-scatter-haikei_1_g8jodx.png" > -->
           <span class="span"> Congratulations you won!</span>
           <!-- <img class="line" src="https://res.cloudinary.com/dvpavvw1u/image/upload/v1648677233/9_auymu1.svg"> -->
           <div class="modal-body">
+            <span id="moves-text"></span>
+            <br>
+            <span id="best-score"></span>
           </div>
           <div class="modal-footer border-0">
             <div class="d-grid gap-2 mx-auto">
 
-              <button type="button" class="btn btn-primary btn-lg" id="restart" data-dismiss="modal">New
+              <button type="button" class="new-game" id="restart" data-dismiss="modal">New
                 Game</button>
               <button type="button" class="restart" id="back_to_intro">Back to the Forest</button>
 
