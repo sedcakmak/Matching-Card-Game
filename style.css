@@ -240,7 +240,7 @@ body {
   font-family: "Libre Baskerville", serif;
   font-size: 20px;
   font-weight: bold;
-  width: 60%;
+  width: 80%;
   color: #f5f5dc;
   z-index: 9999;
   line-height: 1.7;
@@ -596,12 +596,38 @@ input:checked + .switch-left + .switch-right::before {
   }
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 760px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 790px) {
   .intro-text {
     font-size: 14px;
     max-width: 300px;
   }
 
+  .game-text {
+    font-size: 14px;
+  }
+  .memory-game {
+    padding-top: 110px;
+    width: 360px;
+    height: 460px;
+  }
+
+  .boardStats {
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .mid {
+    padding-left: 0;
+    padding-right: 1em;
+    /* position: absolute;
+    bottom: 0; */
+  }
+
+  #toggle_sounds {
+    left: 1%;
+    top: 2%;
+  }
   .front-face,
   .back-face {
     padding: 5px;
