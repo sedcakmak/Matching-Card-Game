@@ -114,6 +114,11 @@ function showGameBoard() {
     shuffle();
   }, 4000);
 }
+
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0);
+};
+
 function goBackToIntro() {
   location.reload();
 }
@@ -286,7 +291,3 @@ function startOver() {
 
 cardElement.forEach((card) => card.addEventListener("click", flipCard));
 restartButton.addEventListener("click", startOver);
-
-window.onbeforeunload = () => {
-  window.scrollTo(0, 0);
-};
