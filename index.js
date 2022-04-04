@@ -195,7 +195,7 @@ function checkWin() {
     if (card.classList.contains("cardDisabled")) {
       disabledCards.push(card);
     }
-    if (disabledCards.length === 20) {
+    if (disabledCards.length === 2) {
       sfx.stop();
       bestScore();
       modalText();
@@ -286,3 +286,7 @@ function startOver() {
 
 cardElement.forEach((card) => card.addEventListener("click", flipCard));
 restartButton.addEventListener("click", startOver);
+
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0);
+};
