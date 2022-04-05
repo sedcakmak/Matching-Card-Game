@@ -739,6 +739,13 @@ input:checked + .switch-left + .switch-right::before {
   .music_icon {
     width: 23px;
     height: 23px;
+    left: 2px;
+    top: 2px;
+  }
+
+  .music_icon:active {
+    width: 23px;
+    height: 23px;
   }
 
   button.full-width {
