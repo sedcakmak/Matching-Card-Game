@@ -28,8 +28,7 @@ body {
   box-shadow: inset rgba(0, 0, 0, 0.2) 0px 5px 6px;
   left: 3%;
   top: 4%;
-  outline-color: #aaa9ad;
-  outline-style: double;
+  box-shadow: 0 0 0 1pt #aaa9ad;
   position: absolute;
 }
 
@@ -119,6 +118,7 @@ body {
 }
 .intro-button:active {
   transform: translateY(2px);
+  -webkit-transform: translateY(2px);
   transition-duration: 0.35s;
 }
 
@@ -272,6 +272,7 @@ body {
   bottom: 0.4em;
   background-color: #ddd;
   transform: rotate(15deg) skewX(15deg);
+  -webkit-transform: rotate(15deg) skewX(15deg);
 }
 
 .switch-right {
@@ -291,6 +292,7 @@ body {
   bottom: -0.45em;
   background-color: #ccc;
   transform: skewY(-65deg);
+  -webkit-transform: skewY(-65deg);
 }
 
 .switch-left::before {
@@ -301,6 +303,7 @@ body {
   right: -0.375em;
   background-color: transparent;
   transform: skewY(65deg);
+  -webkit-transform: skewY(65deg);
 }
 
 input:checked + .switch-left {
@@ -311,6 +314,7 @@ input:checked + .switch-left {
   height: 2.5em;
   width: 3em;
   transform: rotate(0deg) skewX(0deg);
+  -webkit-transform: rotate(0deg) skewX(0deg);
 }
 
 input:checked + .switch-left::before {
@@ -326,6 +330,7 @@ input:checked + .switch-left + .switch-right {
   height: 2.4em;
   width: 2.75em;
   transform: rotate(-15deg) skewX(-15deg);
+  -webkit-transform: rotate(-15deg) skewX(-15deg);
 }
 
 input:checked + .switch-left + .switch-right::before {
@@ -452,18 +457,21 @@ input:checked + .switch-left + .switch-right::before {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
   transform: scale(1);
+  -webkit-transform: scale(1);
   transition: transform 0.5s;
   cursor: pointer;
 }
 
 .memory-card:active {
   transform: scale(0.97);
+  -webkit-transform: scale(0.97);
   transition: transform 0.2s;
 }
 
 .front-face {
   background-color: #f5f5dc;
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .front-face,
@@ -482,9 +490,11 @@ input:checked + .switch-left + .switch-right::before {
 
 .memory-card.flip {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 .memory-card.flip_reset {
   transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
   transition: transform 0s;
 }
 .memory-card.pop_in {
