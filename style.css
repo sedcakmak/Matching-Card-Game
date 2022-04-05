@@ -515,8 +515,9 @@ input:checked + .switch-left + .switch-right::before {
   margin: 5px;
   position: relative;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-  transform-style: preserve-3d;
   transform: scale(1);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 0.5s;
   cursor: pointer;
 }
