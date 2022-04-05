@@ -475,6 +475,30 @@ input:checked + .switch-left + .switch-right::before {
   }
 }
 
+@-webkit-keyframes zoom-in-zoom-out {
+  0% {
+    transform: rotateY(180deg) scale(1, 1);
+  }
+  50% {
+    transform: rotateY(180deg) scale(1.1, 1.1);
+  }
+  100% {
+    transform: rotateY(180deg) scale(1, 1);
+  }
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: rotateY(180deg) scale(1, 1);
+  }
+  50% {
+    transform: rotateY(180deg) scale(1.1, 1.1);
+  }
+  100% {
+    transform: rotateY(180deg) scale(1, 1);
+  }
+}
+
 .memory-game {
   margin: auto;
   width: 640px;
@@ -530,8 +554,8 @@ input:checked + .switch-left + .switch-right::before {
   transition: transform 0s;
 }
 .memory-card.pop_in {
-  -webkit-animation: wiggle 0.5s 1;
-  animation: wiggle 0.5s 1;
+  -webkit-animation: zoom-in-zoom-out 0.5s 1;
+  animation: zoom-in-zoom-out 0.5s 1;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
