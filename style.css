@@ -680,9 +680,9 @@ input:checked + .switch-left + .switch-right::before {
 
 @media screen and (min-device-width: 320px) and (max-device-width: 700px) {
   .memory-game {
-    padding-top: 120px;
+    padding-top: 90px;
     width: 360px;
-    height: 475px;
+    height: 460px;
   }
   .boardStats {
     flex-direction: row;
@@ -704,7 +704,7 @@ input:checked + .switch-left + .switch-right::before {
 
   .game-text {
     font-size: 20px;
-    margin: 46px auto 20px;
+    margin: 16px auto 20px;
   }
   #start-journey {
     margin-top: 7em;
@@ -732,6 +732,13 @@ input:checked + .switch-left + .switch-right::before {
   #toggle_sounds {
     left: 1%;
     top: 1%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .music_icon {
+    width: 23px;
+    height: 23px;
   }
 
   button.full-width {
