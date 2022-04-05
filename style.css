@@ -3,15 +3,8 @@
   margin: 0;
   box-sizing: border-box;
   user-select: none;
+  -webkit-user-select: none;
 }
-/* html {
-  height: 100%;
-} */
-/* body {
-  width: 100%;
-  height: 100%;
-} */
-
 body {
   background-color: black;
 }
@@ -20,45 +13,23 @@ body {
   display: flex;
   height: 90vh;
   opacity: 0;
-  /* transition: opacity ease-in 8s; */
   transition-delay: display 5s;
   display: none;
   margin-top: 60px;
 }
-/* .restart {
-  display: inline-block;
-  outline: 0;
-  text-align: center;
-  cursor: pointer;
-  padding: 17px 30px;
-  color: #fff;
-  font-size: 17.5px;
-  background: #00d301;
-  background: -webkit-linear-gradient(-196deg, #00d301, #36c275 50%, #00a562);
-  background: -webkit-linear-gradient(164deg, #00d301, #36c275 50%, #00a562);
-  background: linear-gradient(286deg, #00d301, #36c275 50%, #00a562);
-  line-height: 30px;
-  font-weight: 800;
-  transition: background color 0.1s ease-in-out;
-  border-radius: 10px;
-} */
+
 #toggle_sounds {
   z-index: 5;
-  /* margin-left: auto;
-  margin-right: auto;
-  padding: 5px; */
   cursor: pointer;
   width: 50px;
   height: 50px;
   background-color: #66ff00;
   border-radius: 100%;
   box-shadow: inset rgba(0, 0, 0, 0.2) 0px 5px 6px;
-  left: 4%;
+  left: 3%;
   top: 4%;
   outline-color: #aaa9ad;
   outline-style: double;
-  /* margin-left: -50px;
-  margin-top: -50px; */
   position: absolute;
 }
 
@@ -80,10 +51,8 @@ body {
   text-shadow: 0px 1px 0px #fff;
   text-align: center;
   padding-top: 6px;
-  user-select: none;
   border-radius: 100%;
   background-image: url("./images/play.svg");
-  /* background-image: linear-gradient(top, #eee, #bbb 70%, #9f9f9f 100%); */
   background-position: 0 0;
   background-color: #eee;
   background-repeat: no-repeat;
@@ -114,11 +83,6 @@ body {
 }
 
 .trees {
-  /* margin-left: auto;
-  margin-right: auto; */
-
-  /* background-size: cover; */
-  /* border: white 1px solid; */
   background: url(./images/trees.svg) repeat-x center bottom;
   background-size: contain;
   position: absolute;
@@ -131,11 +95,9 @@ body {
 }
 
 .intro-button {
-  z-index: 3;
-  margin-top: 5em;
+  z-index: 5;
   margin-left: auto;
   margin-right: auto;
-  /* padding: 10px; */
   text-align: center;
   display: block;
   position: relative;
@@ -149,8 +111,6 @@ body {
   color: black;
   height: 4rem;
   transition: background-color 5s;
-  user-select: none;
-  -webkit-user-select: none;
 }
 
 .intro-button:hover {
@@ -167,6 +127,17 @@ body {
   outline: none;
 }
 
+#start-journey {
+  transition: opacity 2s ease-in;
+  border-radius: 10px 100px / 120px;
+  margin-top: 10em;
+}
+#take-path {
+  opacity: 0;
+  transition: opacity 2.5s ease-in;
+  margin-top: 5em;
+}
+
 .restart {
   display: inline-block;
   outline: 0;
@@ -181,7 +152,6 @@ body {
   background: linear-gradient(286deg, #00d301, #36c275 50%, #00a562);
   line-height: 30px;
   font-weight: 800;
-  transition: background color 0.1s ease-in-out;
   border-radius: 10px;
 }
 .new-game {
@@ -209,16 +179,6 @@ body {
   font-weight: 800;
   transition: background color 0.1s ease-in-out;
   border-radius: 10px;
-}
-
-#start-journey {
-  transition: opacity 2s ease-in;
-  border-radius: 10px 100px / 120px;
-}
-#take-path {
-  opacity: 0;
-  transition: opacity 2.5s ease-in;
-  z-index: 5;
 }
 
 .intro-text {
@@ -272,6 +232,7 @@ body {
   height: 4em;
   overflow: hidden;
   border-bottom: 0.5em solid #eee;
+  margin-top: 1rem;
 }
 
 .rocker::before {
@@ -393,9 +354,6 @@ input:checked + .switch-left + .switch-right::before {
   right: 0;
   background: url(./images/caveBackground.svg) no-repeat center center;
   background-size: cover;
-  /* animation: zoom-in-zoom-out 5s infinite; */
-
-  height: 100vh;
 }
 
 .background-intro {
@@ -496,7 +454,6 @@ input:checked + .switch-left + .switch-right::before {
   transform: scale(1);
   transition: transform 0.5s;
   cursor: pointer;
-  user-select: none;
 }
 
 .memory-card:active {
@@ -517,12 +474,10 @@ input:checked + .switch-left + .switch-right::before {
   position: absolute;
   border-radius: 5px;
   backface-visibility: hidden;
-  user-select: none;
   -webkit-user-drag: none;
 }
 .back-face {
   background-color: #8bacc7;
-  /* #EAA763 */
 }
 
 .memory-card.flip {
@@ -558,7 +513,6 @@ input:checked + .switch-left + .switch-right::before {
 .span {
   text-shadow: 0.07em 0 white, 0 0.07em white, -0.07em 0 white, 0 -0.07em white;
   color: #36c275;
-  /* #ffff00; */
 }
 
 #moves-text,
@@ -579,13 +533,11 @@ input:checked + .switch-left + .switch-right::before {
   border-radius: 10px;
 }
 
-@media screen and (min-device-width: 740px) {
+@media screen and (min-device-width: 740px) and (max-device-width: 1025px) {
   .intro-text {
     width: 700px;
     text-align: center;
     line-height: 1.7;
-  }
-  .intro-text {
     padding-top: 10em;
   }
   .intro-button {
@@ -600,6 +552,60 @@ input:checked + .switch-left + .switch-right::before {
   .front-face,
   .back-face {
     padding: 7px;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1025px) and (orientation: portrait) {
+  .boardStats {
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    bottom: 7%;
+    left: 9%;
+    gap: 35px;
+  }
+
+  .memory-game {
+    margin: 197px auto;
+  }
+
+  .game-text {
+    margin: 80px auto 20px;
+    font-size: 25px;
+    line-height: 2;
+  }
+
+  .moves {
+    font-size: 25px;
+  }
+  .rocker {
+    font-size: 1.3em;
+  }
+
+  .wrapper {
+    height: 80vh;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1025px) and (orientation: landscape) {
+  .game-text {
+    font-size: 29px;
+    margin: 30px 135px 20px;
+  }
+  #take-path {
+    margin-top: 3em;
+  }
+  .wrapper {
+    margin-top: 135px;
+    height: 80vh;
+  }
+  .memory-game {
+    width: 700px;
+    height: 633px;
+    padding-left: 90px;
+  }
+  .boardStats {
+    row-gap: 15px;
   }
 }
 
@@ -630,7 +636,6 @@ input:checked + .switch-left + .switch-right::before {
   .game-text {
     font-size: 20px;
     margin: 46px auto 20px;
-    /* width: 82%; */
   }
   #start-journey {
     margin-top: 7em;
@@ -653,8 +658,6 @@ input:checked + .switch-left + .switch-right::before {
   .mid {
     padding-left: 0;
     padding-right: 1em;
-    /* position: absolute;
-    bottom: 0; */
   }
 
   #toggle_sounds {
@@ -666,13 +669,8 @@ input:checked + .switch-left + .switch-right::before {
     width: 100%;
     margin: 5px auto;
   }
-
-  /* .background-game {
-    height: 155vh;
-  } */
 }
 
-/*Telefon yatik*/
 @media screen and (min-device-width: 640px) and (max-device-width: 700px) and (orientation: landscape) {
   .intro-text {
     line-height: 1.7em;
@@ -691,7 +689,6 @@ input:checked + .switch-left + .switch-right::before {
   }
 
   .boardStats {
-    /* left: 100px; */
     top: 208px;
     flex-direction: column;
   }

@@ -200,7 +200,7 @@ function checkWin() {
     if (card.classList.contains("cardDisabled")) {
       disabledCards.push(card);
     }
-    if (disabledCards.length === 2) {
+    if (disabledCards.length === 20) {
       sfx.stop();
       bestScore();
       modalText();
