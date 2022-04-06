@@ -182,13 +182,18 @@ function checkForMatch() {
   moves++;
   movesEle.textContent = `Moves: ${moves}`;
 }
-
+let frontFaces = document.querySelectorAll(".front-face");
 function disableCards() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
-  firstCard.classList.add("cardDisabled", "pop_in");
-  secondCard.classList.add("cardDisabled", "pop_in");
+  firstCard.classList.add("cardDisabled");
+  secondCard.classList.add("cardDisabled");
 
+  frontFaces.forEach((card) => {
+    if (firstCard.dataset.framework === card.id) {
+      card.classList.add("pop_in");
+    }
+  });
   playMonsterSound(firstCard.dataset.framework);
   resetBoard();
 }
