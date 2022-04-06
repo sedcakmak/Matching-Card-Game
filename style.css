@@ -691,7 +691,7 @@ input:checked + .switch-left + .switch-right::before {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 700px) {
+@media screen and (min-width: 320px) and (max-width: 740px) {
   .memory-game {
     padding-top: 90px;
     width: 360px;
@@ -708,7 +708,7 @@ input:checked + .switch-left + .switch-right::before {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 700px) and (orientation: portrait) {
+@media screen and (min-width: 320px) and (max-width: 740px) and (orientation: portrait) {
   .intro-text {
     font-size: 24px;
     max-width: 300px;
@@ -767,7 +767,7 @@ input:checked + .switch-left + .switch-right::before {
   }
 }
 
-@media screen and (min-width: 640px) and (max-width: 700px) and (orientation: landscape) {
+@media screen and (min-width: 640px) and (max-width: 740px) and (orientation: landscape) {
   .intro-text {
     line-height: 1.7em;
     max-width: 575px;
