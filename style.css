@@ -73,7 +73,6 @@ body {
   font-weight: 700;
   color: #f5f5dc;
   padding: 17px 30px;
-  float: left;
   font-size: 22px;
   text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
@@ -81,6 +80,7 @@ body {
 .boardStats {
   display: flex;
   flex-direction: column;
+  align-items: baseline;
 }
 
 .trees {
@@ -99,9 +99,9 @@ body {
   z-index: 5;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
   text-align: center;
   display: block;
-  position: relative;
   cursor: pointer;
   font-family: "Libre Baskerville", serif;
   font-size: 20px;
@@ -112,7 +112,6 @@ body {
   border-radius: 8px;
   color: black;
   height: 4rem;
-  transition: background-color 5s;
 }
 
 .intro-button:hover {

@@ -182,6 +182,7 @@ function checkForMatch() {
   moves++;
   movesEle.textContent = `Moves: ${moves}`;
 }
+
 let frontFaces = document.querySelectorAll(".front-face");
 function disableCards() {
   firstCard.removeEventListener("click", flipCard);
@@ -284,16 +285,12 @@ function startOver() {
     card.classList.remove("pop_in");
   });
   cardElement.forEach((card) => {
-    if (card.classList.contains("cardDisabled")) {
-      card.classList.add("flip_reset");
-      card.classList.remove("cardDisabled", "pop_in");
-    }
+    card.classList.add("flip_reset");
+    card.classList.remove("cardDisabled");
     card.addEventListener("click", flipCard);
   });
 
   shuffle();
-  hasFlippedCard = false;
-  lockBoard = false;
   resetBoard();
 }
 
