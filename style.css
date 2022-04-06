@@ -477,25 +477,25 @@ input:checked + .switch-left + .switch-right::before {
 
 @-webkit-keyframes zoom-in-zoom-out {
   0% {
-    transform: scale(1, 1);
+    transform: rotateY(180deg) scale(1, 1);
   }
   50% {
-    transform: scale(1.1, 1.1);
+    transform: rotateY(180deg) scale(1.1, 1.1);
   }
   100% {
-    transform: scale(1, 1);
+    transform: rotateY(180deg) scale(1, 1);
   }
 }
 
 @keyframes zoom-in-zoom-out {
   0% {
-    transform: scale(1, 1);
+    transform: rotateY(180deg) scale(1, 1);
   }
   50% {
-    transform: scale(1.1, 1.1);
+    transform: rotateY(180deg) scale(1.1, 1.1);
   }
   100% {
-    transform: scale(1, 1);
+    transform: rotateY(180deg) scale(1, 1);
   }
 }
 
