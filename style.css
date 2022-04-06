@@ -178,7 +178,7 @@ body {
 
 .intro-text {
   font-family: "Libre Baskerville", serif;
-  font-size: 28px;
+  font-size: 1.5em;
   font-weight: 400;
   font-style: italic;
   width: 800px;
@@ -620,7 +620,6 @@ input:checked + .switch-left + .switch-right::before {
     width: 700px;
     text-align: center;
     line-height: 1.7;
-    padding-top: 10em;
   }
   .intro-button {
     padding: 0 2.6rem;
@@ -642,18 +641,22 @@ input:checked + .switch-left + .switch-right::before {
     flex-direction: row;
     position: absolute;
     align-items: center;
-    bottom: 7%;
+    bottom: 3%;
     left: 9%;
     gap: 35px;
   }
 
+  .intro-text {
+    padding-top: 10em;
+  }
+
   .memory-game {
-    margin: 197px auto;
+    margin: 170px auto;
   }
 
   .game-text {
     margin: 80px auto 20px;
-    font-size: 25px;
+    font-size: 24px;
     line-height: 2;
   }
 
@@ -683,7 +686,7 @@ input:checked + .switch-left + .switch-right::before {
   }
   .memory-game {
     width: 700px;
-    height: 633px;
+    height: 540px;
     padding-left: 90px;
   }
   .boardStats {
@@ -710,7 +713,7 @@ input:checked + .switch-left + .switch-right::before {
 
 @media screen and (min-width: 320px) and (max-width: 740px) and (orientation: portrait) {
   .intro-text {
-    font-size: 24px;
+    /* font-size: 24px; */
     max-width: 300px;
     text-align: justify;
   }
