@@ -280,6 +280,9 @@ function startOver() {
   bestScoreBoard();
   moves = 0;
 
+  frontFaces.forEach((card) => {
+    card.classList.remove("pop_in");
+  });
   cardElement.forEach((card) => {
     if (card.classList.contains("cardDisabled")) {
       card.classList.add("flip_reset");
