@@ -115,13 +115,13 @@ function showGameBoard() {
   }, 4000);
 }
 
-window.onbeforeunload = () => {
-  window.scrollTo(0, 0);
-};
-
 function goBackToIntro() {
+  window.scrollTo(0, 0);
   location.reload();
 }
+// window.onbeforeunload = () => {
+//   window.scrollTo(0, 0);
+// };
 
 let isMuted = false;
 
