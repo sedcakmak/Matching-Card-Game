@@ -72,7 +72,7 @@ function showIntroText() {
   var content =
     "Under a starry night, you found yourself in a pitch black forest. There is only one path to move forward. ";
 
-  var ele = "<span>" + content.split("").join("</span><span>") + "</span>";
+  var ele = "<i>" + content.split("").join("</i><i>") + "</i>";
 
   $(ele)
     .hide()
@@ -191,7 +191,7 @@ function disableCards() {
   secondCard.classList.add("cardDisabled");
 
   frontFaces.forEach((card) => {
-    if (firstCard.dataset.framework === card.id) {
+    if (secondCard.dataset.framework === card.id) {
       card.classList.add("pop_in");
     }
   });
