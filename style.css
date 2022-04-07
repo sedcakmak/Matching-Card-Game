@@ -75,7 +75,6 @@ body {
 .moves {
   font-family: "Source Sans Pro", sans-serif;
   font-style: normal;
-  /* font-weight: 700; */
   color: #f5f5dc;
   padding: 17px 30px;
   font-size: 22px;
@@ -108,11 +107,8 @@ body {
   text-align: center;
   display: block;
   cursor: pointer;
-  /* font-family: "Libre Baskerville", serif; */
   font-size: 20px;
   font-weight: 800;
-  /* font-style: italic;
-  */
   padding: 13px 20px;
   background-color: #b2b2b2;
   border-radius: 8px;
@@ -154,8 +150,6 @@ body {
   color: #fff;
   font-size: 17.5px;
   background: #00d301;
-  /* background: -webkit-linear-gradient(-196deg, #00d301, #36c275 50%, #00a562);
-  background: -webkit-linear-gradient(164deg, #00d301, #36c275 50%, #00a562); */
   background: linear-gradient(286deg, #00d301, #36c275 50%, #00a562);
   line-height: 30px;
   font-weight: 800;
@@ -178,15 +172,11 @@ body {
   );
   line-height: 30px;
   font-weight: 800;
-  transition: background color 0.1s ease-in-out;
   border-radius: 10px;
 }
 
 .intro-text {
-  /* font-family: "Libre Baskerville", serif; */
   font-size: 1.75em;
-  /*
-  font-style: italic; */
   width: 800px;
   color: white;
   opacity: 0.7;
@@ -199,11 +189,8 @@ body {
   text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
 .game-text {
-  /* font-family: "Libre Baskerville", serif; */
   font-size: 20px;
   font-weight: 800;
-  /* f
-  font-style: italic; */
   width: 82%;
   color: #f5f5dc;
   z-index: 3;
@@ -229,7 +216,6 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-style: normal;
   font-size: 1em;
-  /* font-weight: 700; */
   text-align: center;
   color: #888;
   width: 7em;
@@ -484,30 +470,6 @@ input:checked + .switch-left + .switch-right::before {
   }
 }
 
-@-webkit-keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1) rotateY(180deg);
-  }
-  50% {
-    transform: scale(1.1, 1.1) rotateY(180deg);
-  }
-  100% {
-    transform: scale(1, 1) rotateY(180deg);
-  }
-}
-
-@keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1) rotateY(180deg);
-  }
-  50% {
-    transform: scale(1.1, 1.1) rotateY(180deg);
-  }
-  100% {
-    transform: scale(1, 1) rotateY(180deg);
-  }
-}
-
 .memory-game {
   margin: auto;
   width: 640px;
@@ -565,26 +527,12 @@ input:checked + .switch-left + .switch-right::before {
   transform: rotate(360deg);
   transition: transform 0s;
 }
-/* .memory-card.pop_in {
-  -webkit-animation: zoom-in-zoom-out 0.5s 1;
-  animation: zoom-in-zoom-out 0.5s 1;
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-} */
-
 .front-face.pop_in {
   -webkit-animation: wiggle 0.5s 1;
   animation: wiggle 0.5s 1;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
-/* .front-face.pop_in {
-  -webkit-animation: zoom-in-zoom-out 0.5s 1;
-  animation: zoom-in-zoom-out 0.5s 1;
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-} */
-
 .img {
   width: 100%;
   border-radius: 10px;
@@ -601,7 +549,6 @@ input:checked + .switch-left + .switch-right::before {
   z-index: 4;
   text-align: center;
   padding: 70px 0 0 0;
-  /* font-weight: 700; */
 }
 
 .span {
@@ -730,7 +677,6 @@ input:checked + .switch-left + .switch-right::before {
 
 @media screen and (min-width: 320px) and (max-width: 740px) and (orientation: portrait) {
   .intro-text {
-    /* font-size: 24px; */
     max-width: 300px;
     text-align: justify;
   }

@@ -120,9 +120,6 @@ function goBackToIntro() {
   window.scrollTo(0, 0);
   location.reload();
 }
-// window.onbeforeunload = () => {
-//   window.scrollTo(0, 0);
-// };
 
 let isMuted = false;
 
