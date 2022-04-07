@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Libre Baskerville", serif;
+  font-family: "Libre Baskerville", serif !important;
   font-weight: 700;
   font-style: italic;
   -webkit-user-select: none;
