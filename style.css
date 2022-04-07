@@ -103,10 +103,10 @@ body {
   text-align: center;
   display: block;
   cursor: pointer;
-  font-family: "Libre Baskerville", serif;
+  font-family: "Great Vibes", cursive;
   font-size: 20px;
-  font-style: italic;
-  font-weight: 400;
+  /* font-style: italic; */
+  font-weight: 700;
   padding: 13px 20px;
   background-color: #b2b2b2;
   border-radius: 8px;
@@ -177,8 +177,8 @@ body {
 }
 
 .intro-text {
-  font-family: "Libre Baskerville", serif;
-  font-size: 1.5em;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.75em;
   font-weight: 400;
   /* font-style: italic; */
   width: 800px;
@@ -193,10 +193,10 @@ body {
   text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
 .game-text {
-  font-family: "Libre Baskerville", serif;
+  font-family: "Great Vibes", cursive;
   font-size: 20px;
   font-weight: 400;
-  font-style: italic;
+  /* font-style: italic; */
   width: 82%;
   color: #f5f5dc;
   z-index: 3;
@@ -615,6 +615,11 @@ input:checked + .switch-left + .switch-right::before {
   border-radius: 10px;
 }
 
+@media screen and (max-width: 1025px) {
+  .intro-text {
+    font-size: 1.5em;
+  }
+}
 @media screen and (min-width: 740px) and (max-width: 1025px) {
   .intro-text {
     width: 700px;

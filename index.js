@@ -82,7 +82,7 @@ function showIntroText() {
         .delay(50 * i)
         .css({
           display: "inline",
-          fontStyle: "italic",
+          // fontStyle: "italic",
           opacity: 0,
         })
         .animate(
