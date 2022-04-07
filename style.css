@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Libre Baskerville", serif;
   font-weight: 700;
+  font-style: italic;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -73,6 +74,7 @@ body {
 
 .moves {
   font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
   /* font-weight: 700; */
   color: #f5f5dc;
   padding: 17px 30px;
@@ -225,6 +227,7 @@ body {
   display: inline-block;
   position: relative;
   font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
   font-size: 1em;
   /* font-weight: 700; */
   text-align: center;
@@ -257,6 +260,7 @@ body {
 .switch-left,
 .switch-right {
   font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
   cursor: pointer;
   position: absolute;
   display: flex;
@@ -589,6 +593,7 @@ input:checked + .switch-left + .switch-right::before {
 .span,
 .modal-body {
   font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
   position: relative;
   bottom: 0;
   left: 0;
