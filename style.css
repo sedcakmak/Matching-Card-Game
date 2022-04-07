@@ -2,11 +2,14 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 body {
   background-color: black;
 }
@@ -70,7 +73,7 @@ body {
 
 .moves {
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
+  /* font-weight: 700; */
   color: #f5f5dc;
   padding: 17px 30px;
   font-size: 22px;
@@ -103,10 +106,11 @@ body {
   text-align: center;
   display: block;
   cursor: pointer;
-  font-family: "Great Vibes", cursive;
+  /* font-family: "Libre Baskerville", serif; */
   font-size: 20px;
-  /* font-style: italic; */
-  font-weight: 700;
+  font-weight: 800;
+  /* font-style: italic;
+  */
   padding: 13px 20px;
   background-color: #b2b2b2;
   border-radius: 8px;
@@ -177,10 +181,10 @@ body {
 }
 
 .intro-text {
-  font-family: "Great Vibes", cursive;
+  /* font-family: "Libre Baskerville", serif; */
   font-size: 1.75em;
-  font-weight: 400;
-  /* font-style: italic; */
+  /*
+  font-style: italic; */
   width: 800px;
   color: white;
   opacity: 0.7;
@@ -193,10 +197,11 @@ body {
   text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
 .game-text {
-  font-family: "Great Vibes", cursive;
+  /* font-family: "Libre Baskerville", serif; */
   font-size: 20px;
-  font-weight: 400;
-  /* font-style: italic; */
+  font-weight: 800;
+  /* f
+  font-style: italic; */
   width: 82%;
   color: #f5f5dc;
   z-index: 3;
@@ -221,7 +226,7 @@ body {
   position: relative;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1em;
-  font-weight: 700;
+  /* font-weight: 700; */
   text-align: center;
   color: #888;
   width: 7em;
@@ -251,6 +256,7 @@ body {
 
 .switch-left,
 .switch-right {
+  font-family: "Source Sans Pro", sans-serif;
   cursor: pointer;
   position: absolute;
   display: flex;
@@ -519,6 +525,7 @@ input:checked + .switch-left + .switch-right::before {
   -webkit-transform-style: preserve-3d;
   transition: transform 0.5s;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .memory-card:active {
@@ -589,7 +596,7 @@ input:checked + .switch-left + .switch-right::before {
   z-index: 4;
   text-align: center;
   padding: 70px 0 0 0;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 .span {
